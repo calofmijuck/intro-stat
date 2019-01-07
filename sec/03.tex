@@ -1,0 +1,43 @@
+\section{순열과 조합}
+\defn{$0!=1$, $n! = \displaystyle \prod_{i=1}^n i  = n\cdot(n-1)\cdot\cdots\cdot2\cdot 1 \: (n\geq 1)$ 로 정의하고, $!$ 는 \textbf{팩토리얼}(factorial)이라 읽는다.}
+\defn{서로 다른 $n$개의 원소에서 서로 다른 $r$개를 택하여 일렬로 배열하는 것을 $n$개에서 $r$개를 택하는 \textbf{순열}(permutation)이라 하고, 기호로 $\p{n}{r}$ 와 같이 나타낸다.}
+
+\thm{$\p{n}{r} = n(n-1)\cdots(n-r+1) = \dfrac{n!}{(n-r)!}$ \quad (단, $0\leq r\leq n$)}
+
+\defn{서로 다른 $n$개의 원소에서 순서를 생각하지 않고 $r$개를 택하는 것을 $n$개에서 $r$개를 택하는 \textbf{조합}(combination)이라 하고, 기호로 $_{n}\text{C}_{r}$ 또는 $\displaystyle {n \choose r}$ 과 같이 나타낸다.}
+
+\thm{$\displaystyle {n \choose r} = \dfrac{\p{n}{r}}{r!} = \dfrac{n!}{r!(n-r)!}$ \quad (단, $0\leq r\leq n$)}
+
+\thm{(조합의 성질) 
+\begin{enumerate}
+	\item[(1)] $\displaystyle {n \choose r} = {n \choose n - r}$ \quad (단, $0\leq r\leq n$) (대칭성) 
+	\item[(2)] $\ds {n\choose r} = {n-1\choose r} + {n-1\choose r-1} $ \quad (단, $1\leq r\leq n-1$) \textbf{(파스칼 법칙)} 
+\end{enumerate}}
+
+\defn{서로 다른 $n$개의 원소에서 중복을 허락하여 $r$개를 택하는 순열을 $n$개에서 $r$개를 택하는 \textbf{중복순열}이라 하고, 기호로 $_n \Pi_r$ 과 같이 나타낸다.}
+
+\defn{서로 다른 $n$개의 원소에서 중복을 허락하여 $r$개를 택하는 조합을 $n$개에서 $r$개를 택하는 \textbf{중복조합}이라 하고, 기호로 $_n \text{H}_r$ 과 같이 나타낸다.}
+
+\thm{$\ds _n \Pi_r = n^r, \quad _n \text{H}_r = {n+r-1 \choose r}$.}
+
+\thm{$n\in\mathbb{N}$ 에 대하여, $$(x+y)^n = \sum_{r=0}^n {n\choose r} x^{n-r}y^{r} = {n \choose 0}x^ny^0 + {n\choose 1}x^{n-1}y^1+\cdots + {n\choose n}x^0y^n$$ 이다. 이를 $ (a+b)^n $에 대한 \textbf{이항정리}(binomial theorem)라 하고, $\ds{n\choose r}x^{n-r}y^r$을 전개식의 \textbf{일반항}, 전개식의 각 항의 계수 $\ds {n\choose r} $들을 \textbf{이항계수}라 한다.}
+
+\thm{(이항계수의 성질)
+\begin{enumerate}
+	\item[(1)] $\ds (1+x)^n = \sum_{r=0}^n {n\choose r}x^r={n \choose 0} + {n\choose 1}x + \cdots + {n\choose n}x^n$ \quad (for all $x\in \mathbb{C}$)
+	\item[(2)] $\ds \sum_{r=0}^n {n\choose r} = {n \choose 0} + {n \choose 1}+\cdots + {n \choose n} = 2^n$
+	\item[(3)] $\ds \sum_{r=0}^n (-1)^r {n\choose r} = {n \choose 0} - {n \choose 1} + {n \choose 2} - {n \choose 3} +\cdots + (-1)^n{n \choose n} = 0$
+	\item[(4)] $\ds \sum_{r=0}^nr{n\choose r} ={n \choose 1} + 2\cdot {n \choose 2} + \cdots + n\cdot {n \choose n} = n\cdot 2^{n-1}$
+	\item[(5)] $\ds \sum_{r=0}^nr^2{n\choose r} = 2^2\cdot {n \choose 2} +3^2\cdot {n \choose 3} + \cdots + n^2\cdot {n \choose n} = n(n+1)\cdot 2^{n-2}$
+	\item[(6)] $\ds \sum_{r=0}^n \frac{1}{r+1}{n\choose r}=\frac{1}{1}{n\choose 0} + \frac{1}{2}{n\choose 1} + \cdots + \frac{1}{n+1}{n\choose n} = \frac{1}{n+1}\left(2^{n+1}-1\right)$
+\end{enumerate}}
+
+\thm{$n\in\mathbb{N}$ 에 대하여, $$(x_1+x_2+\cdots+x_m)^n = \sum_{r_1+r_2+\cdots+r_m=n} {n\choose r_1, r_2, \dots, r_m}x_1^{r_1}x_2^{r_2}\cdots x_m^{r_m} $$ 이고, 이를 $(x_1+x_2+\cdots+x_m)^n$에 대한 \textbf{다항정리}(multinomial theorem)라 한다. 이 때 $\ds{n\choose r_1, r_2, \dots, r_m}$를 \textbf{다항계수}라 하고, 다음과 같이 정의한다. $${n\choose r_1, r_2, \dots, r_m} = \frac{n!}{r_1!\cdot r_2!\cdot \cdots \cdot r_m!}$$}
+
+\defn{서로 다른 $n$개의 원소를 원형으로 배열하는 순열을 \textbf{원순열}이라 하고, 그 경우의 수는 $(n-1)!$ 이다.}
+
+\thm{(원순열의 일반공식) $n$개 중에서 서로 같은 것이 $p_1, p_2, \dots, p_k$개씩 있을 때, 이 $n\,(=p_1+\cdots+p_k)$개를 원형으로 배열하는 방법(원순열)의 수는 다음과 같다.
+$$\frac{1}{n}\sum_{d\,|\,g} \left\{\phi(d) {\frac{n}{d}\choose \frac{p_1}{n},\frac{p_2}{n},\dots,\frac{p_k}{n}}  \right\}$$
+단, $g = \gcd(p_1, \dots, p_k)$, $d>0$ 이고 $\phi(d)$는 $d$ 이하의 자연수 중에서 $d$ 와 서로소인 자연수의 개수로 정의된다. 
+}
+\pagebreak

@@ -1,4 +1,6 @@
 \documentclass[12pt]{article}
+\usepackage{graphicx}
+
 \usepackage{kotex}
 \usepackage{amsmath}
 \usepackage{amsfonts}
@@ -44,126 +46,12 @@
 
 \tableofcontents
 \pagebreak
-\section{순열과 조합}
-\defn{$0!=1$, $n! = \displaystyle \prod_{i=1}^n i  = n\cdot(n-1)\cdot\cdots\cdot2\cdot 1 \: (n\geq 1)$ 로 정의하고, $!$ 는 \textbf{팩토리얼}(factorial)이라 읽는다.}
-\defn{서로 다른 $n$개의 원소에서 서로 다른 $r$개를 택하여 일렬로 배열하는 것을 $n$개에서 $r$개를 택하는 \textbf{순열}(permutation)이라 하고, 기호로 $\p{n}{r}$ 와 같이 나타낸다.}
 
-\thm{$\p{n}{r} = n(n-1)\cdots(n-r+1) = \dfrac{n!}{(n-r)!}$ \quad (단, $0\leq r\leq n$)}
-
-\defn{서로 다른 $n$개의 원소에서 순서를 생각하지 않고 $r$개를 택하는 것을 $n$개에서 $r$개를 택하는 \textbf{조합}(combination)이라 하고, 기호로 $_{n}\text{C}_{r}$ 또는 $\displaystyle {n \choose r}$ 과 같이 나타낸다.}
-
-\thm{$\displaystyle {n \choose r} = \dfrac{\p{n}{r}}{r!} = \dfrac{n!}{r!(n-r)!}$ \quad (단, $0\leq r\leq n$)}
-
-\thm{(조합의 성질) 
-\begin{enumerate}
-	\item[(1)] $\displaystyle {n \choose r} = {n \choose n - r}$ \quad (단, $0\leq r\leq n$) (대칭성) 
-	\item[(2)] $\ds {n\choose r} = {n-1\choose r} + {n-1\choose r-1} $ \quad (단, $1\leq r\leq n-1$) \textbf{(파스칼 법칙)} 
-\end{enumerate}}
-
-\defn{서로 다른 $n$개의 원소에서 중복을 허락하여 $r$개를 택하는 순열을 $n$개에서 $r$개를 택하는 \textbf{중복순열}이라 하고, 기호로 $_n \Pi_r$ 과 같이 나타낸다.}
-
-\defn{서로 다른 $n$개의 원소에서 중복을 허락하여 $r$개를 택하는 조합을 $n$개에서 $r$개를 택하는 \textbf{중복조합}이라 하고, 기호로 $_n \text{H}_r$ 과 같이 나타낸다.}
-
-\thm{$\ds _n \Pi_r = n^r, \quad _n \text{H}_r = {n+r-1 \choose r}$.}
-
-\thm{$n\in\mathbb{N}$ 에 대하여, $$(x+y)^n = \sum_{r=0}^n {n\choose r} x^{n-r}y^{r} = {n \choose 0}x^ny^0 + {n\choose 1}x^{n-1}y^1+\cdots + {n\choose n}x^0y^n$$ 이다. 이를 $ (a+b)^n $에 대한 \textbf{이항정리}(binomial theorem)라 하고, $\ds{n\choose r}x^{n-r}y^r$을 전개식의 \textbf{일반항}, 전개식의 각 항의 계수 $\ds {n\choose r} $들을 \textbf{이항계수}라 한다.}
-
-\thm{(이항계수의 성질)
-\begin{enumerate}
-	\item[(1)] $\ds (1+x)^n = \sum_{r=0}^n {n\choose r}x^r={n \choose 0} + {n\choose 1}x + \cdots + {n\choose n}x^n$ \quad (for all $x\in \mathbb{C}$)
-	\item[(2)] $\ds \sum_{r=0}^n {n\choose r} = {n \choose 0} + {n \choose 1}+\cdots + {n \choose n} = 2^n$
-	\item[(3)] $\ds \sum_{r=0}^n (-1)^r {n\choose r} = {n \choose 0} - {n \choose 1} + {n \choose 2} - {n \choose 3} +\cdots + (-1)^n{n \choose n} = 0$
-	\item[(4)] $\ds \sum_{r=0}^nr{n\choose r} ={n \choose 1} + 2\cdot {n \choose 2} + \cdots + n\cdot {n \choose n} = n\cdot 2^{n-1}$
-	\item[(5)] $\ds \sum_{r=0}^nr^2{n\choose r} = 2^2\cdot {n \choose 2} +3^2\cdot {n \choose 3} + \cdots + n^2\cdot {n \choose n} = n(n+1)\cdot 2^{n-2}$
-	\item[(6)] $\ds \sum_{r=0}^n \frac{1}{r+1}{n\choose r}=\frac{1}{1}{n\choose 0} + \frac{1}{2}{n\choose 1} + \cdots + \frac{1}{n+1}{n\choose n} = \frac{1}{n+1}\left(2^{n+1}-1\right)$
-\end{enumerate}}
-
-\thm{$n\in\mathbb{N}$ 에 대하여, $$(x_1+x_2+\cdots+x_m)^n = \sum_{r_1+r_2+\cdots+r_m=n} {n\choose r_1, r_2, \dots, r_m}x_1^{r_1}x_2^{r_2}\cdots x_m^{r_m} $$ 이고, 이를 $(x_1+x_2+\cdots+x_m)^n$에 대한 \textbf{다항정리}(multinomial theorem)라 한다. 이 때 $\ds{n\choose r_1, r_2, \dots, r_m}$를 \textbf{다항계수}라 하고, 다음과 같이 정의한다. $${n\choose r_1, r_2, \dots, r_m} = \frac{n!}{r_1!\cdot r_2!\cdot \cdots \cdot r_m!}$$}
-
-\defn{서로 다른 $n$개의 원소를 원형으로 배열하는 순열을 \textbf{원순열}이라 하고, 그 경우의 수는 $(n-1)!$ 이다.}
-
-\thm{(원순열의 일반공식) $n$개 중에서 서로 같은 것이 $p_1, p_2, \dots, p_k$개씩 있을 때, 이 $n\,(=p_1+\cdots+p_k)$개를 원형으로 배열하는 방법(원순열)의 수는 다음과 같다.
-$$\frac{1}{n}\sum_{d\,|\,g} \left\{\phi(d) {\frac{n}{d}\choose \frac{p_1}{n},\frac{p_2}{n},\dots,\frac{p_k}{n}}  \right\}$$
-단, $g = \gcd(p_1, \dots, p_k)$, $d>0$ 이고 $\phi(d)$는 $d$ 이하의 자연수 중에서 $d$ 와 서로소인 자연수의 개수로 정의된다. 
-}
-
-\pagebreak
-\section{확률의 뜻과 활용}
-
-\defn{같은 조건 아래에서 반복할 수 있고, 그 결과가 우연에 의하여 결정되는 실험이나 관찰을 \textbf{시행}이라고 한다. 어떤 시행에서 일어날 수 있는 모든 가능한 결과 전체의 집합을 \textbf{표본공간}(sample space $S$)이라 하고, 표본공간의 부분집합을 \textbf{사건}(event)이라고 한다.}
-
-\defn{표본공간의 부분집합 중에서 원소의 개수가 한 개인 집합을 \textbf{근원사건}이라 하고, 반드시 일어나는 사건은 \textbf{전사건}, 절대로 일어나지 않는 사건은 \textbf{공사건}($\varnothing$)이라 한다.}
-
-
-\defn{두 사건 $A, B$에 대하여, $A$ 또는 $B$가 일어나는 사건을 $A$와 $B$의 \textbf{합사건}이라 하고, $A\cup B$ 로 나타낸다. 그리고 $A$와 $B$가 동시에 일어나는 사건을 $A$와 $B$의 \textbf{곱사건}이라 하고, $A\cap B$ 로 나타낸다.}
-
-\defn{표본공간 $S$의 부분집합인 두 사건 $A, B$에 대하여 $A\cap B = \varnothing$ 이면 $A$와 $B$는 서로 \textbf{배반사건}이라 한다. 또, 사건 $A$가 일어나지 않는 사건을 사건 $A$의 \textbf{여사건}이라 하고, $A^C$로 나타낸다.}
-
-\defn{어떤 시행에서 사건 $A$가 일어날 가능성을 수로 나타낸 것을 사건 $A$가 일어날 \textbf{확률}이라 하고, 기호로 $\pr(A)$와 같이 나타낸다.}
-
-\defn{(수학적 확률) 어떤 시행의 표본공간 $S$가 $m$개의 근원사건으로 이루어져 있고, \textbf{각 근원사건이 일어날 가능성이 모두 같은 정도로 기대될 때}, 사건 $A$가 $r$개의 근원사건으로 이루어져 있으면 사건 $A$가 일어날 확률은 다음과 같다.$$\pr(A) = \frac{\text{(사건 }A\text{가 일어나는 경우의 수)}}{\text{(모든 경우의 수)}} =\frac{n(A)}{n(S)} = \frac{r}{m}$$}
-
-\defn{(통계적 확률) 같은 시행을 $n$번 반복하여 사건 $A$가 일어난 횟수를 $r_n$이라고 하자. 이 때, 시행 횟수 $n$이 한없이 커짐에 따라 그 상대도수 $r_n/n$ 은 $\pr(A)$에 가까워진다. $$\pr(A)=\lim_{n\rightarrow \infty} \frac{r_n}{n}$$} 
-
-\defn{(기하학적 확률) 연속적인 변량을 크기로 갖는 표본공간의 영역 $S$ 안에서 각각의 점을 잡을 가능성이 같은 정도로 기대될 때, 영역 $S$에 포함되어 있는 영역 $A$에 대하여 영역 $S$에서 임의로 잡은 점이 영역 $A$에 속할 확률은 다음과 같다. $$\pr(A) = \frac{\text{(영역 }A\text{의 크기)}}{\text{(영역 }S\text{의 크기)}}$$ }
-
-\defn{(확률의 공리 - Axioms of Probability) 표본공간 $S$와 사건 $A$에 대하여,
-\begin{enumerate}
-	\item[(1)] $0\leq \pr(A)\leq 1$
-	\item[(2)] $\pr(S) = 1$
-	\item[(3)] 서로 배반인 사건열 $A_1, A_2, \dots$ 에 대해 $\ds \pr\left(\bigcup_{i=1}^\infty A_i\right) = \sum_{i=1}^\infty \pr(A_i)$
-\end{enumerate}
-}
-
-\thm{\textbf{(확률의 기본 성질)} 
-\begin{enumerate}
-	\item[(1)] $\pr(\varnothing) = 0$
-	\item[(2)] $\pr(A\cup B) = \pr(A) + \pr(B) - \pr(A\cap B)$ \quad \textbf{(확률의 덧셈정리)}
-	\item[(3)] $\pr(A^C) = 1-\pr(A)$ \quad (여사건의 확률)
-\end{enumerate}
-}
-
-\thm{\textbf{(포함 배제 원리)} 사건 $A_1, \dots, A_n$에 대하여 다음이 성립한다.
-$$\pr\left(\bigcup_{i=1}^n A_i\right) = \sum_{k=1}^n (-1)^{k+1} \left(\sum_{1\leq i_1<\cdots< i_k\leq n} \pr\left(A_{i_1}\cap \cdots \cap A_{i_k}\right)\right)$$
-}
-
-\pagebreak
-\section{조건부확률}
-\defn{확률이 $0$이 아닌 두 사건 $A, B$에 대하여 사건 $A$가 일어났을 때, 사건 $B$가 일어날 확률을 사건 $A$가 일어났을 때의 사건 $B$의 \textbf{조건부확률}(conditional probability)이라 하고, 기호로 $\pr(B\,|\,A)$ 와 같이 나타낸다. 이는 다음과 같이 계산한다.$$\pr(B\,|\,A) = \frac{\pr(A\cap B)}{\pr(A)} \quad \big(\pr(A)>0\big)$$}
-
-\thm{\textbf{(확률의 곱셈정리)} 공사건이 아닌 두 사건 $A, B$에 대하여 다음이 성립한다.$$\pr(A\cap B) = \pr(B\,|\,A)\pr(A) = \pr(A\,|\,B)\pr(B)$$}
-
-\defn{두 사건 $A, B$에 대하여 사건 $A$가 일어났을 때의 사건 $B$의 조건부확률이 사건 $B$가 일어날 확률과 같을 때, 즉 $$\pr(B\,|\,A) = \pr(B\,|\,A^C) = \pr(B)$$ 이면, 두 사건 $A, B$는 서로 \textbf{독립}(independent)이라 하고, 기호로 $A\indep B$ 와 같이 나타낸다. 두 사건이 독립이 아닐 때는 \textbf{종속}이라 한다.}
-
-\thm{공사건이 아닌 두 사건 $A, B$에 대하여 다음 조건은 서로 동치이다.
-\begin{enumerate}
-	\item[(1)] $A, B$가 서로 독립이다. \vspace{-3mm}
-	\item[(2)] $\pr(A\cap B) = \pr(A)\pr(B)$
-\end{enumerate}}
-
-\thm{공사건이 아닌 두 사건 $A, B$에 대하여 다음이 성립한다.
-\begin{center}
-	[$A, B$가 독립] $\iff$ [$A^C, B$가 독립] $\iff$ [$A, B^C$가 독립] $\iff$ [$A^C, B^C$가 독립]
-\end{center}}
-
-\defn{공사건이 아닌 사건 $A_1, \dots, A_n$에 대하여, $$\pr(A_i\cap A_j) = \pr(A_i)\pr(A_j) \quad \text{for all }1\leq i\neq j\leq n$$
-	이 성립하면 사건 $A_1, \dots, A_n$이 \textbf{쌍마다 독립}(pairwise independent)이라고 한다. }
-
-\defn{공사건이 아닌 사건 $A_1, \dots, A_n$에 대하여, $$\pr\left(\bigcap_{i=1}^n A_i\right) = \prod_{i=1}^n \pr(A_i)$$
-	이 성립하면 사건 $A_1, \dots, A_n$이 \textbf{상호 독립}(mutually independent)이라고 한다. }
-
-\defn{동일한 시행을 반복할 때, 각 시행에서 일어나는 사건이 서로 독립이면 이러한 시행을 \textbf{독립시행}이라고 한다.}
-
-\thm{\textbf{(독립시행의 확률)} $1$회의 시행에서 사건 $A$가 일어날 확률을 $p$ 라 할 때, 이 시행을 $n$회 반복하는 독립시행에서 사건 $A$가 $r$번 일어날 확률은 다음과 같다. $${n\choose r} p^r(1-p)^r \quad \big(r=0, 1, \dots, n\big)$$}
-
-\pagebreak
-\section{자료의 생성}
-
-
-
-
-
-
+\input{./sec/01.tex}
+\input{./sec/02.tex}
+\input{./sec/03.tex}
+\input{./sec/04.tex}
+\input{./sec/05.tex}
 
 
 \end{document}

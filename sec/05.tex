@@ -1,0 +1,29 @@
+\section{조건부확률}
+\defn{확률이 $0$이 아닌 두 사건 $A, B$에 대하여 사건 $A$가 일어났을 때, 사건 $B$가 일어날 확률을 사건 $A$가 일어났을 때의 사건 $B$의 \textbf{조건부확률}(conditional probability)이라 하고, 기호로 $\pr(B\,|\,A)$ 와 같이 나타낸다. 이는 다음과 같이 계산한다.$$\pr(B\,|\,A) = \frac{\pr(A\cap B)}{\pr(A)} \quad \big(\pr(A)>0\big)$$}
+
+\thm{\textbf{(확률의 곱셈정리)} 공사건이 아닌 두 사건 $A, B$에 대하여 다음이 성립한다.$$\pr(A\cap B) = \pr(B\,|\,A)\pr(A) = \pr(A\,|\,B)\pr(B)$$}
+
+\defn{두 사건 $A, B$에 대하여 사건 $A$가 일어났을 때의 사건 $B$의 조건부확률이 사건 $B$가 일어날 확률과 같을 때, 즉 $$\pr(B\,|\,A) = \pr(B\,|\,A^C) = \pr(B)$$ 이면, 두 사건 $A, B$는 서로 \textbf{독립}(independent)이라 하고, 기호로 $A\indep B$ 와 같이 나타낸다. 두 사건이 독립이 아닐 때는 \textbf{종속}이라 한다.}
+
+\thm{공사건이 아닌 두 사건 $A, B$에 대하여 다음 조건은 서로 동치이다.
+\begin{enumerate}
+	\item[(1)] $A, B$가 서로 독립이다. \vspace{-3mm}
+	\item[(2)] $\pr(A\cap B) = \pr(A)\pr(B)$
+\end{enumerate}}
+
+\thm{공사건이 아닌 두 사건 $A, B$에 대하여 다음이 성립한다.
+\begin{center}
+	[$A, B$가 독립] $\iff$ [$A^C, B$가 독립] $\iff$ [$A, B^C$가 독립] $\iff$ [$A^C, B^C$가 독립]
+\end{center}}
+
+\defn{공사건이 아닌 사건 $A_1, \dots, A_n$에 대하여, $$\pr(A_i\cap A_j) = \pr(A_i)\pr(A_j) \quad \text{for all }1\leq i\neq j\leq n$$
+	이 성립하면 사건 $A_1, \dots, A_n$이 \textbf{쌍마다 독립}(pairwise independent)이라고 한다. }
+
+\defn{공사건이 아닌 사건 $A_1, \dots, A_n$에 대하여, $$\pr\left(\bigcap_{i=1}^n A_i\right) = \prod_{i=1}^n \pr(A_i)$$
+	이 성립하면 사건 $A_1, \dots, A_n$이 \textbf{상호 독립}(mutually independent)이라고 한다. }
+
+\defn{동일한 시행을 반복할 때, 각 시행에서 일어나는 사건이 서로 독립이면 이러한 시행을 \textbf{독립시행}이라고 한다.}
+
+\thm{\textbf{(독립시행의 확률)} $1$회의 시행에서 사건 $A$가 일어날 확률을 $p$ 라 할 때, 이 시행을 $n$회 반복하는 독립시행에서 사건 $A$가 $r$번 일어날 확률은 다음과 같다. $${n\choose r} p^r(1-p)^r \quad \big(r=0, 1, \dots, n\big)$$}
+
+\pagebreak

@@ -1,0 +1,63 @@
+\section{자료의 생성}
+\textbf{통계학}(statistics)이란, 주어진 문제에 대하여 합리적인 답을 줄 수 있도록 숫자로 표시되는 정보를 \textbf{수집}하고 정리하며, 이를 해석하고 \textbf{신뢰성 있는 결론}을 이끌어 내는 방법을 연구하는 과학의 한 분야이다.\\\\
+그러면 두 가지 질문이 생긴다.
+\begin{enumerate}
+	\item \textbf{수집}: 어떻게 수집해야 전체를 잘 대표할 수 있는가?
+	\item \textbf{신뢰성 있는 결론}: 어떻게 신뢰성을 측정하여 결론을 내릴 것인가?
+\end{enumerate}
+\vspace{3mm}
+\defn{~
+\begin{itemize}
+	\item \textbf{추출단위}(sampling unit): 전체를 구성하는 각 개체
+	\item \textbf{특성값}(characteristic): 각 추출단위의 특성을 나타내는 값
+	\item \textbf{모집단}(population): 관심의 대상이 되는 모든 추출단위의 특성값을 모아 놓은 것\\ 추출단위의 개수가 유한하면 \textbf{유한모집단}, 무한하면 \textbf{무한모집단}이라 한다.
+	\item \textbf{표본}(sample): 실제로 관측한 추출단위의 특성값의 모임
+\end{itemize}
+}
+
+\defn{(자료의 종류)
+	\begin{enumerate}
+		\item \textbf{범주형 자료}(categorical data), \textbf{질적 자료}(qualitative data)는 관측 결과가 몇 개의 범주 또는 항목의 형태로 나타나는 자료이다.
+		\begin{itemize}
+			\item \textbf{명목자료}(nominal data): 순위의 개념이 없다. 예) 혈액형, 성별
+			\item \textbf{순서자료}(ordinal data): 순위의 개념을 갖는다. 예) A $\sim$ F 학점, 9등급제
+		\end{itemize}
+		\item \textbf{수치형 자료}(numerical data), \textbf{양적 자료}(quantitative data)는 자료 자체가 숫자로 표현되며 숫자 자체가 자료의 속성을 반영한다.
+		\begin{itemize}
+			\item \textbf{이산형 자료}(discrete data) 예) 교통사고 건수
+			\item \textbf{연속형 자료}(continuous data) 예) 키, 몸무게
+		\end{itemize}
+	\end{enumerate}}
+
+\defn{(통계학의 분류)
+\begin{itemize}
+	\item \textbf{기술통계학}(descriptive statistics)은 표나 그림 또는 대표값 등을 통하여 수집된 자료의 특성을 쉽게 파악할 수 있도록 자료를 정리$\cdot$요약 하는 방법을 다루는 분야이다.
+	\item \textbf{추측통계학}(inferential statistics)은 표본에 내포된 정보를 분석하여 모집단의 여러가지 특성에 대하여 과학적으로 추론하는 방법을 다루는 분야이다.	
+\end{itemize}
+}
+
+\defn{$N$개의 추출단위로 구성된 유한모집단에서 $n$개의 추출단위를 비복원추출할 때, $_N \mathrm{C}_n$개의 모든 가능한 표본들이 동일한 확률로 추출되는 방법을 \textbf{단순랜덤추출법}(simple random sampling)이라 하고, 이 방법을 위해서는 난수표(random number table)나 난수생성기(random number generator) 등을 이용한다. 그리고 단순랜덤추출로 얻은 표본을 \textbf{단순랜덤표본}(simple random sample)이라 한다. 
+}
+
+\defn{(통계적 실험)
+\begin{itemize}
+	\item 실험이 행해지는 개체를 \textbf{실험단위}(experimental unit/subject)라 하고, 각각의 실험단위에 특정한 실험환경 또는 실험조건을 가하는 것을 \textbf{처리}(treatment)라 한다.
+	\item 처리를 받는 집단을 \textbf{처리집단}(treatment group), 처리를 받지 않은 집단을 \textbf{대조집단}(control group)이라 한다.
+	\item 실험환경이나 실험조건을 나타내는 변수를 \textbf{인자}(factor)라 하고, 인자가 취하는 값을 그 인자의 \textbf{수준}(level)이라 한다. 
+	\item 인자에 대한 반응을 나타내는 변수를 \textbf{반응변수}(response variable)라 한다.
+	\item 실험단위가 처리집단이나 대조집단에 들어갈 기회를 동등하게 부여하는 방법을 \textbf{랜덤화}(randomization)라 한다.
+	\item 랜덤화에 의해 모든 실험단위를 각 처리에 배정하는 실험계획을 \textbf{완전 랜덤화 계획}(completely randomized design)이라 한다.
+	\item 실험 이전에 동일 처리에 대한 반응이 유사할 것으로 예상되는 실험단위들끼리 모은 것을 \textbf{블록}(block)이라 하고, 랜덤화에 의해 모든 블록을 각 처리에 배정하는 실험계획을 \textbf{블록화}(randomized block design)라 한다.
+\end{itemize}
+}
+
+\defn{\textbf{(통계적 실험계획의 원칙)}
+\begin{enumerate}
+	\item \textbf{대조}(control): 관심 인자 이외의 다른 외부 인자의 효과를 극소화하고, 처리에 대한 대조집단을 통해 비교 실험을 한다.
+	\item \textbf{랜덤화}(randomization): 완전랜덤화계획
+	\item \textbf{반복 시행}(replication): 처리효과의 탐지를 용이하게 하기 위해 반복 시행한다. 
+\end{enumerate}
+}
+
+
+\pagebreak

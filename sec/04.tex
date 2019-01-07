@@ -1,0 +1,40 @@
+\section{확률의 뜻과 활용}
+
+\defn{같은 조건 아래에서 반복할 수 있고, 그 결과가 우연에 의하여 결정되는 실험이나 관찰을 \textbf{시행}이라고 한다. 어떤 시행에서 일어날 수 있는 모든 가능한 결과 전체의 집합을 \textbf{표본공간}(sample space $S$)이라 하고, 표본공간의 부분집합을 \textbf{사건}(event)이라고 한다.}
+
+\defn{표본공간의 부분집합 중에서 원소의 개수가 한 개인 집합을 \textbf{근원사건}이라 하고, 반드시 일어나는 사건은 \textbf{전사건}, 절대로 일어나지 않는 사건은 \textbf{공사건}($\varnothing$)이라 한다.}
+
+
+\defn{두 사건 $A, B$에 대하여, $A$ 또는 $B$가 일어나는 사건을 $A$와 $B$의 \textbf{합사건}이라 하고, $A\cup B$ 로 나타낸다. 그리고 $A$와 $B$가 동시에 일어나는 사건을 $A$와 $B$의 \textbf{곱사건}이라 하고, $A\cap B$ 로 나타낸다.}
+
+\defn{표본공간 $S$의 부분집합인 두 사건 $A, B$에 대하여 $A\cap B = \varnothing$ 이면 $A$와 $B$는 서로 \textbf{배반사건}이라 한다. 또, 사건 $A$가 일어나지 않는 사건을 사건 $A$의 \textbf{여사건}이라 하고, $A^C$로 나타낸다.}
+
+\defn{어떤 시행에서 사건 $A$가 일어날 가능성을 수로 나타낸 것을 사건 $A$가 일어날 \textbf{확률}이라 하고, 기호로 $\pr(A)$와 같이 나타낸다.}
+
+\defn{(수학적 확률) 어떤 시행의 표본공간 $S$가 $m$개의 근원사건으로 이루어져 있고, \textbf{각 근원사건이 일어날 가능성이 모두 같은 정도로 기대될 때}, 사건 $A$가 $r$개의 근원사건으로 이루어져 있으면 사건 $A$가 일어날 확률은 다음과 같다.$$\pr(A) = \frac{\text{(사건 }A\text{가 일어나는 경우의 수)}}{\text{(모든 경우의 수)}} =\frac{n(A)}{n(S)} = \frac{r}{m}$$}
+
+\defn{(통계적 확률) 같은 시행을 $n$번 반복하여 사건 $A$가 일어난 횟수를 $r_n$이라고 하자. 이 때, 시행 횟수 $n$이 한없이 커짐에 따라 그 상대도수 $r_n/n$ 은 $\pr(A)$에 가까워진다. $$\pr(A)=\lim_{n\rightarrow \infty} \frac{r_n}{n}$$} 
+
+\defn{(기하학적 확률) 연속적인 변량을 크기로 갖는 표본공간의 영역 $S$ 안에서 각각의 점을 잡을 가능성이 같은 정도로 기대될 때, 영역 $S$에 포함되어 있는 영역 $A$에 대하여 영역 $S$에서 임의로 잡은 점이 영역 $A$에 속할 확률은 다음과 같다. $$\pr(A) = \frac{\text{(영역 }A\text{의 크기)}}{\text{(영역 }S\text{의 크기)}}$$ }
+
+\defn{(확률의 공리 - Axioms of Probability) 표본공간 $S$와 사건 $A$에 대하여,
+\begin{enumerate}
+	\item[(1)] $0\leq \pr(A)\leq 1$
+	\item[(2)] $\pr(S) = 1$
+	\item[(3)] 서로 배반인 사건열 $A_1, A_2, \dots$ 에 대해 $\ds \pr\left(\bigcup_{i=1}^\infty A_i\right) = \sum_{i=1}^\infty \pr(A_i)$
+\end{enumerate}
+}
+
+\thm{\textbf{(확률의 기본 성질)} 
+\begin{enumerate}
+	\item[(1)] $\pr(\varnothing) = 0$
+	\item[(2)] $\pr(A\cup B) = \pr(A) + \pr(B) - \pr(A\cap B)$ \quad \textbf{(확률의 덧셈정리)}
+	\item[(3)] $\pr(A^C) = 1-\pr(A)$ \quad (여사건의 확률)
+\end{enumerate}
+}
+
+\thm{\textbf{(포함 배제 원리)} 사건 $A_1, \dots, A_n$에 대하여 다음이 성립한다.
+$$\pr\left(\bigcup_{i=1}^n A_i\right) = \sum_{k=1}^n (-1)^{k+1} \left(\sum_{1\leq i_1<\cdots< i_k\leq n} \pr\left(A_{i_1}\cap \cdots \cap A_{i_k}\right)\right)$$
+}
+
+\pagebreak
