@@ -23,9 +23,33 @@
 
 \defn{변량과 중앙값 사이의 거리에 대한 평균을 \textbf{평균절대편차}(mean absolute deviance $MAD$)라 한다. $$MAD = \frac{1}{n}\sum_{i=1}^n \left|x_i - Q_2\right|$$} 
 
-\defn{변량 $x_i$가 \textbf{최댓값}(maximum)이면 모든 $j$에 대해 $x_i\geq x_j$ 이고, $x_i$가 \textbf{최솟값}(minimum)이면 모든 $j$에 대해 $x_i\leq x_j$ 이다. 최댓값에서 최솟값을 뺀 값을 \textbf{범위}(range)라 한다.}
+\defn{변량 $x_i$가 \textbf{최댓값}(maximum)이면 모든 $j$에 대해 $x_i\geq x_j$ 이고, $x_i$가 \textbf{최솟값}(minimum)이면 모든 $j$에 대해 $x_i\leq x_j$ 이다. 최댓값에서 최솟값을 뺀 값을 \textbf{범위}(range $R$)라 한다.}
 
 
 \defn{$Q_3$에서 $Q_1$을 뺀 값을 \textbf{사분위수범위}(interquartile range $IQR$)로 정의한다. $$IQR = Q_3-Q_1$$}\\
-위 통계량들을 표본에 대해서도 정의할 수 있다. 모집단으로부터 표본 $x_1, \dots, x_n$를 얻었다고 하고, 이를 순서대로 나열한 것을 $x_{(1)}, \dots, x_{(n)}$이라 하자.
+위 대표값들을 표본에 대해서도 정의할 수 있다. 모집단으로부터 표본 $x_1, \dots, x_n$를 얻었다고 하고, 이를 오름차순으로 나열한 것을 $x_{(1)}, \dots, x_{(n)}$이라 하자.\\
+
+\defn{~
+\begin{itemize}
+	\item \textbf{표본평균}(sample mean): 표본의 평균. $\ds \overline{x} = \frac{1}{n} \sum_{i=1}^n x_i$
+	\item \textbf{표본분산}(sample variance): 표본의 분산. $\ds s^2=\frac{1}{n-1}\sum_{i=1}^n (x_i-\overline{x})^2$
+	\item \textbf{표본표준편차}(sample standard deviation): 표본의 표준편차. $s = \sqrt{s^2}$
+\end{itemize}
+}
+
+\defn{표본을 크기 순서로 나열했을 때 $p$\%가 그 값보다 작고, $(100-p)$\%가 그 값보다 크게 되는 값을 \textbf{표본의 제 $p$ 백분위수}라 하고, 다음과 같이 계산한다.
+$$\begin{cases}
+	\dfrac{x_{(k)}+x_{(k+1)}}{2} & \text{ if } n\cdot \dfrac{p}{100} = k\\x_{(k+1)} & \text{ if } k < n\cdot \dfrac{p}{100} < k+1
+\end{cases}$$
+}
+
+\defn{\textbf{표본의 제 $i$ 사분위수} $\widehat{Q_i}$ 는 표본의 제 $25i$ 백분위수로 정의한다. (단, $i=1, 2, 3$)}
+
+\defn{~
+\begin{itemize}
+	\item \textbf{표본의 평균절대편차}: $\ds \widehat{MAD} = \frac{1}{n}\sum_{i=1}^n \left|x_i-\widehat{Q_2}\right|$
+	\item \textbf{표본의 범위}: $\widehat{R} = x_{(n)}-x_{(1)}$
+	\item \textbf{표본의 사분위수범위}: $\widehat{IQR} = \widehat{Q_3} - \widehat{Q_1}$
+\end{itemize}
+}
 \pagebreak
