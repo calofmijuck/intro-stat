@@ -1,2 +1,2 @@
-# APStat
-Summary for AP Statistics course
+# Introductory Statistics
+Summary for Introductory Statistics course
