@@ -26,4 +26,15 @@
 
 \thm{\textbf{(독립시행의 확률)} $1$회의 시행에서 사건 $A$가 일어날 확률을 $p$ 라 할 때, 이 시행을 $n$회 반복하는 독립시행에서 사건 $A$가 $r$번 일어날 확률은 다음과 같다. $${n\choose r} p^r(1-p)^r \quad \big(r=0, 1, \dots, n\big)$$}
 
+\thm{(\textbf{전확률공식} - Law of Total Probability) 표본공간 $S$의 분할인 사건 $A_1, \dots, A_n$에 대하여 다음이 성립한다.
+$$\pr(B) = \sum_{i=1}^n \pr(B\, |\, A_i)\,\pr(A_i)$$
+\textbf{증명.} $\ds \pr(B) = \pr\left( \bigcup_{i=1}^n\left(B\cap A_i\right)\right) = \sum_{i=1}^n \pr(B\cap A_i) = \sum_{i=1}^n\pr(B\, |\, A_i)\,\pr(A_i) $ \qed
+}
+
+\thm{(\textbf{베이즈 정리} - Bayes' Theorem) 사건 $A_1, \dots, A_n$이 표본공간 $S$의 분할이고 $\pr(B)>0$ 이면 다음이 성립한다.
+$$\pr(A_k \, |\, B) = \frac{\pr(B\,|\,A_k)\,\pr(A_k)}{\ds\sum_{i=1}^n \pr(B\, |\, A_i)\,\pr(A_i)}$$
+\textbf{증명.} 조건부확률의 정의와 전확률공식으로부터 자명. \qed
+}
+
+
 \pagebreak
