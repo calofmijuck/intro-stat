@@ -1,3 +1,31 @@
 \section{대표값과 산포도}
+주어진 자료의 변량 $x_1, \cdots, x_n$에 대하여
+\defn{(산술)\textbf{평균}(mean $\mu$)은 변량의 총합을 변량의 개수로 나눈 값이다. $$\mu = \frac{1}{n}\sum_{i=1}^nx_i$$}
 
+\defn{변량 $x_i$의 \textbf{편차}는 $x_i-\mu$ 로 정의한다. [편차의 제곱]의 평균을 \textbf{분산}(variance $\sigma^2$)으로, 분산의 양의 제곱근을 \textbf{표준편차}(standard deviation $\sigma$)로 정의한다. $$\sigma^2 = \frac{1}{n}\sum_{i=1}^n(x_i-\mu)^2$$}
+
+\thm{$\ds \sigma^2 = \frac{1}{n}\sum_{i=1}^n x_i^2 - \mu^2$ \quad $\big($분산은 [변량$^2$의 평균] - [평균의 제곱]$\big)$}
+
+\defn{모집단의 평균을 \textbf{모평균}(population mean), 모집단의 분산을 \textbf{모분산}(population variance), 모집단의 표준편차를 \textbf{모표준편차}(population standard deviation)라고 한다.
+}
+
+\defn{특성값을 작은 것부터 순서대로 나열했을 때 $p$\%의 특성값이 그 값보다 작거나 같고, $(100-p)$\%의 특성값이 그 값보다 크거나 같게 되는 값을 \textbf{제 $p$ 백분위수}($p$-th percentile)라 한다.}
+
+\defn{(사분위수 - quartile)
+\begin{itemize}
+	\item \textbf{제 1 사분위수}(first quartile): 제 25 백분위수이며, $Q_1$ 으로 표기한다. 
+	\item \textbf{제 2 사분위수}(second quartile) 또는 \textbf{중앙값}(median): 제 50 백분위수이며, $Q_2$ 으로 표기한다. 
+	\item \textbf{제 3 사분위수}(third quartile): 제 75 백분위수이며, $Q_3$ 으로 표기한다.
+\end{itemize}	
+}
+
+\defn{자료의 값들 중 가장 자주 등장하는 값을 \textbf{최빈값}(mode)라고 한다. 최빈값은 유일하지 않을 수도 있다.}
+
+\defn{변량과 중앙값 사이의 거리에 대한 평균을 \textbf{평균절대편차}(mean absolute deviance $MAD$)라 한다. $$MAD = \frac{1}{n}\sum_{i=1}^n \left|x_i - Q_2\right|$$} 
+
+\defn{변량 $x_i$가 \textbf{최댓값}(maximum)이면 모든 $j$에 대해 $x_i\geq x_j$ 이고, $x_i$가 \textbf{최솟값}(minimum)이면 모든 $j$에 대해 $x_i\leq x_j$ 이다. 최댓값에서 최솟값을 뺀 값을 \textbf{범위}(range)라 한다.}
+
+
+\defn{$Q_3$에서 $Q_1$을 뺀 값을 \textbf{사분위수범위}(interquartile range $IQR$)로 정의한다. $$IQR = Q_3-Q_1$$}\\
+위 통계량들을 표본에 대해서도 정의할 수 있다. 모집단으로부터 표본 $x_1, \dots, x_n$를 얻었다고 하고, 이를 순서대로 나열한 것을 $x_{(1)}, \dots, x_{(n)}$이라 하자.
 \pagebreak
