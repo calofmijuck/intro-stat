@@ -1,0 +1,127 @@
+\section{이산확률변수}
+\defn{표본공간 위에 정의된 실수값 함수를 \textbf{확률변수}(random variable)라 하고, 확률변수 $X$의 값에 따라 확률이 어떻게 흩어져 있는지를 합이 1인 양수로써 나타낸 것을 $X$의 \textbf{확률분포}(probability distribution)라고 한다.}
+
+\defn{확률변수 $X$가 어떤 값 $x$를 취할 확률은 기호로 $\pr(X=x)$, $a$ 이상 $b$ 이하의 값을 취할 확률은 기호로 $\pr(a\leq X\leq b)$ 와 같이 나타낸다.}
+
+\defn{유한 개이거나, 자연수와 같이 셀 수 있는 값을 취하는 확률변수를 \textbf{이산확률변수}(discrete random variable)라 한다.}
+
+\prob{서로 다른 3개의 동전을 던지는 시행에서 뒷면이 나오는 동전의 개수를 $X$라 할 때, 확률변수 $X$의 확률분표를 표로 나타내어라.\\\vspace{-5mm}
+\begin{center}
+	\begin{tabular}{c|c|c}
+		$X$& ~ & 합계\\
+		\hline
+		$\pr(X=x)$ & ~\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad~ & 1
+	\end{tabular}
+\end{center}
+}
+
+\prob{검은 공 2개와 흰 공 4개가 들어 있는 주머니에서 동시에 3개의 공을 꺼낼 때 나오는 검은 공의 개수를 $X$라 하자. 확률변수 $X$의 확률분포를 표로 나타내어라.}
+\\
+\defn{이산확률변수 $X$가 취할 수 있는 값이 $x_1, \dots, x_n$ 일 때, $X$의 각 값에 [$X$가 이 값을 취할 확률 $p_1, \dots, p_n$] 을 대응시키는 함수
+$$\pr(X=x_i) = p_i\qquad (i=1,\dots, n)$$
+를 이산확률변수 $X$의 \textbf{확률질량함수}(probability mass function)라 하며, 확률질량함수는 다음 조건을 만족해야 한다.
+\begin{enumerate}
+	\item[(1)] $0\leq \pr(X=x_i)\leq 1$
+	\item[(2)] $\ds \sum_{i=1}^n \pr(X=x_i) = 1$
+	\item[(3)] $\pr(a\leq X\leq b) = \ds \sum_{x=a}^b \pr(X=x)$
+\end{enumerate}
+}
+
+\prob{5개의 제비 중에 3개의 당첨 제비가 있다. 임의로 뽑은 2개의 제비 중에 있는 당첨 제비의 개수를 $X$라고 할 때, 확률변수 $X$의 확률질량함수를 구하여라.}
+
+\prob{주어진 이산확률변수 $X$에 대해 다음 값을 구하여라.
+\begin{center}
+	\begin{tabular}{c|c|c|c|c|c}
+		$X$ & 0 & 1 & 2 & 3 & 4\\
+		\hline
+		$\pr(X=x)$ & ~$a$~ & ~$\frac{1}{8}$ ~& ~$b$~ & ~$\frac{1}{4}$~ & ~$\frac{1}{8}$~
+	\end{tabular}
+\end{center}
+\begin{enumerate}
+	\item[(1)] $a+b$
+	\item[(2)] $\pr(X=1 \cup X=3)$
+	\item[(3)] $\pr(0\leq X\leq 2)$
+\end{enumerate}
+}
+
+\defn{이산확률변수 $X$가 취하는 값이 $x_1, \dots, x_n$일 때,
+\begin{itemize}
+	\item \textbf{평균}(mean), \textbf{기댓값}(expectation): $\mu = \ex(X) = \ds \sum_{i=1}^n x_i\cdot \pr(X=x_i)$\vspace{-3mm}
+	\item \textbf{분산}(variance): $\var(X) = \ex((X-\mu)^2) = \ds \sum_{i=1}^n (x_i-\mu)^2\cdot \pr(X=x_i) $
+	\item \textbf{표준편차}(standard deviation): $\sigma(X) = \sqrt{\var(X)}$
+\end{itemize}
+}
+
+\prob{빨간 공 4개, 흰 공 6개가 들어 있는 주머니에서 3개의 공을 꺼낼 때, 빨간 공이 나오는 개수를 $X$라 한다. $\ex(X), \var(X), \sigma(X)$ 를 구하여라. }
+
+\defn{이산확률변수 $X$와 함수 $g(x)$에 대하여, 다음이 성립한다. $$\ex(g(X)) = \ds \sum_{x\in X} g(x) \cdot \pr(X = x)$$}
+
+\prob{확률변수 $X, Y$에 대하여 다음을 보여라. (단, $a, b$는 상수)
+\begin{enumerate}
+	\item[(1)] $\ex(aX + b) = a\ex(X) + b$
+	\item[(2)] $\var(aX+b) = a^2 \var(X)$
+	\item[(3)] $\sigma(aX+b) = |a|\cdot \sigma(X)$
+	\item[\textbf{(4)}] $\var(X) = \ex(X^2) - \{\ex(X)\}^2$
+\end{enumerate}
+}
+
+\prob{연습문제 6.10 의 확률변수 $X$에 대하여 $\ex(5X+4), \var(5X-1), \sigma(5X + 3)$ 을 각각 구하여라.}
+
+\defn{두 확률변수 $X, Y$에 대하여 이들이 취할 수 있는 값들의 모든 순서쌍에 확률이 흩어진 정도를 합이 1인 양수로 나타낸 것을 $X, Y$의 \textbf{결합분포}(joint probability distribution)라 한다.}
+
+\defn{이산확률변수 $X,\:Y$에 대하여 $X$가 취할 수 있는 값을 $x_1, \dots, x_n$, $Y$가 취할 수 있는 값을 $y_1, \dots, y_m$ 이라 하자. 순서쌍 $(x_i, y_j)$ 에 대하여 [결합분포가 이 값을 취할 확률 $p_{ij}$] 을 대응시키는 함수
+	$$\pr(X=x_i, Y=y_j) = \pr(X=x_i \cap Y=y_j) = p_{ij}$$
+	를 이산확률변수 $X, Y$의 \textbf{결합확률밀도함수}라 하며, 이 함수는 다음 조건을 만족해야 한다.
+	\begin{enumerate}
+		\item[(1)] $0\leq \pr(X=x_i, Y=y_j)\leq 1$
+		\item[(2)] $\ds \sum_{i=1}^n \sum_{j=1}^m \pr(X=x_i, Y=y_j) = 1$\vspace{-3mm}
+		\item[(3)] $\pr(a\leq X\leq b, c\leq Y\leq d) = \ds \sum_{x=a}^b \sum_{y=c}^d \pr(X=x, Y=y)$
+	\end{enumerate}
+}
+
+\defn{이산확률변수 $X, Y$의 결합확률밀도함수 $\pr(X=x_i, Y=y_j)$에서 확률변수 $X$와 $Y$의 확률분포를 얻을 수 있다.
+$$\pr(X=x_i) = \sum_{y\in Y} \pr(X=x_i, Y = y), \qquad \pr(Y=y_j) = \sum_{x\in X} \pr(X=x, Y = y_j)$$
+이를 각각 $X, Y$의 \textbf{주변확률밀도함수}라 한다.
+}
+
+\prob{하나의 주사위를 던져서 나오는 눈의 종류에 따라 상금이 걸린 게임이 있다. A, B 두 사람이 다음과 같은 게임을 한다.\vspace{2mm}\\
+$~\quad$ \textbf{A}: 1 또는 2 가 나오면 100원, 3 또는 4가 나오면 200원, 5 또는 6이 나오면 300원\\
+$~\quad$ \textbf{B}: 짝수가 나오면 100원, 홀수가 나오면 (눈의 수$\times$100)원\vspace{2mm}\\
+이 때, A의 수입을 $X$, B의 수입을 $Y$라 하자. $X, Y$의 결합확률분포, 주변분포를 구하고, 확률변수 $Z=X+Y$로 정의할 때, $Z$의 확률분포와 $\ex(Z)$를 구하여라.\\
+\begin{center}
+	\begin{tabular}{c|c|c|c|c}
+		$x$ \textbackslash  $\text{ }y$ & ~\qquad\qquad~ & ~\qquad\qquad~ & ~\qquad\qquad~ & 행의 합\\
+		\hline
+		~\qquad~ & ~\qquad\qquad~ & ~\qquad\qquad~ &~\qquad\qquad~ \\
+		\hline
+		~\qquad~ & ~\qquad\qquad~ & ~\qquad\qquad~ &~\qquad\qquad~ \\
+		\hline
+		~\qquad~ & ~\qquad\qquad~ & ~\qquad\qquad~ &~\qquad\qquad~ \\
+		\hline
+		열의 합 & ~\qquad\qquad~ & ~\qquad\qquad~ & ~\qquad\qquad~ & 1
+	\end{tabular}
+\end{center}
+~\\
+\begin{center}
+	\begin{tabular}{c|c|c|c|c|c|c}
+		$z$ &  ~\qquad\quad~ & ~\qquad\quad~ & ~\qquad\quad~ & ~\qquad\quad~ & ~\qquad\quad~ & 합계\\\hline
+		$\pr(Z=z)$ & &  & & & & 1
+	\end{tabular}
+\end{center}
+~
+}\\
+
+\defn{이산확률변수 $X, Y$와 함수 $g(x, y)$에 대하여, 다음이 성립한다. $$\ex(g(X, Y)) = \ds \sum_{x\in X}\sum_{y\in Y} g(x, y) \cdot \pr(X = x, Y=y)$$}\\
+
+\prob{확률변수 $X, Y$에 대하여 $\ex(aX + bY) = a\ex(X) + b\ex(Y)$ 임을 보여라.}\\
+
+\defn{이산확률변수 $X, Y$가 주어져 있다. 임의의 $x_i\in X, y_j\in Y$에 대해 다음이 성립 하면 확률변수 $X, Y$는 서로 \textbf{독립}이라 한다. $$\pr(X=x_i, Y=y_j) = \pr(X=x_i)\cdot \pr(Y= y_j)$$}
+
+\prob{확률변수 $X, Y$가 서로 독립일 때, 다음이 성립함을 보여라.
+\begin{enumerate}
+	\item[(1)] $\ex(XY) = \ex(X)\,\ex(Y)$
+	\item[(2)] $\var(X \pm Y) = \var(X) + \var(Y)$
+\end{enumerate}
+}
+
+\prob{위 연습문제의 역은 성립하지 않음을 보여라. (Hint: $-1, 1$을 각각 $1/2$의 확률로 취하는 확률변수 $X$에 대해 $X$와 $X^2$을 고려한다.)}
