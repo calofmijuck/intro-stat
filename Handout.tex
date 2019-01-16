@@ -23,10 +23,11 @@
 \newtheorem{theorem}{\sffamily 정리}[section]
 \theoremstyle{definition}
 \newtheorem{definition}[theorem]{\sffamily 정의}  
-\newtheorem{exmp}[theorem]{\sffamily 예제}
+\newtheorem{problem}[theorem]{\sffamily 연습문제}
 
 \newcommand{\defn}[1]{\begin{definition}#1\end{definition}~}
-\newcommand{\thm}[1]{\begin{theorem}{#1}\end{theorem}~}
+\newcommand{\thm}[1]{\begin{theorem}#1\end{theorem}~}
+\newcommand{\prob}[1]{\begin{problem}#1\end{problem}~}
 
 \usepackage{titlesec}
 
@@ -39,7 +40,11 @@
 \newcommand{\p}[2]{_{#1}\text{P}_{#2}}
 \newcommand{\ds}{\displaystyle}
 \newcommand{\pr}{\text{P}}
+\newcommand{\cndpr}[2]{\pr\!\left(#1\,|\,#2\right)}
 \newcommand{\indep}{\mathrel{\!\perp \!\!\!\perp\!}}
+\newcommand{\ex}{\mathbf{E}}
+\newcommand{\var}{\mathbf{V}}
+\newcommand{\bi}{\mathbf{B}}
 \renewcommand{\qed}{\hfill\ensuremath{\square}}
 
 
@@ -55,6 +60,7 @@
 \input{./sec/04.tex}
 \input{./sec/05.tex}
 \input{./sec/06.tex}
+\input{./sec/07.tex}
 
 
 \end{document}
