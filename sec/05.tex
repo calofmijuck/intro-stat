@@ -1,9 +1,25 @@
 \section{조건부확률}
 \defn{확률이 $0$이 아닌 두 사건 $A, B$에 대하여 사건 $A$가 일어났을 때, 사건 $B$가 일어날 확률을 사건 $A$가 일어났을 때의 사건 $B$의 \textbf{조건부확률}(conditional probability)이라 하고, 기호로 $\pr(B\,|\,A)$ 와 같이 나타낸다. 이는 다음과 같이 계산한다.$$\pr(B\,|\,A) = \frac{\pr(A\cap B)}{\pr(A)} \quad \big(\pr(A)>0\big)$$}
 
+\prob{주사위 한 개를 던지는 시행에서 소수의 눈이 나오는 사건을 $A$, 홀수의 눈이 나오는 사건을 $B$라 할 때, 다음을 구하여라.
+\begin{enumerate}
+	\item[(1)] $\pr(A\cap B)$
+	\item[(2)] $\cndpr{B}{A}$
+	\item[(3)] $\cndpr{A^C}{B}$
+\end{enumerate}
+} 
 \thm{\textbf{(확률의 곱셈정리)} 공사건이 아닌 두 사건 $A, B$에 대하여 다음이 성립한다.$$\pr(A\cap B) = \pr(B\,|\,A)\pr(A) = \pr(A\,|\,B)\pr(B)$$}
 
+\prob{장난감 100개 중 20개가 불량품이다. 이 중 2개를 임의로 추출할 때, 2개 모두 불량품일 확률을 구하여라.}
+
 \defn{두 사건 $A, B$에 대하여 사건 $A$가 일어났을 때의 사건 $B$의 조건부확률이 사건 $B$가 일어날 확률과 같을 때, 즉 $$\pr(B\,|\,A) = \pr(B\,|\,A^C) = \pr(B)$$ 이면, 두 사건 $A, B$는 서로 \textbf{독립}(independent)이라 하고, 기호로 $A\indep B$ 와 같이 나타낸다. 두 사건이 독립이 아닐 때는 \textbf{종속}이라 한다.}
+
+\prob{주사위 2개를 던질 때, 다음 두 사건이 독립인지 판정하여라.
+\begin{enumerate}
+	\item[(1)] $A$: 두 주사위 눈의 합이 6인 사건, $B$: 첫 번째 주사위 눈이 4인 사건
+	\item[(2)] $A$: 두 주사위 눈의 합이 7인 사건, $B$: 첫 번째 주사위 눈이 4인 사건
+\end{enumerate}
+}
 
 \thm{공사건이 아닌 두 사건 $A, B$에 대하여 다음 조건은 서로 동치이다.
 \begin{enumerate}
@@ -16,25 +32,64 @@
 	[$A, B$가 독립] $\iff$ [$A^C, B$가 독립] $\iff$ [$A, B^C$가 독립] $\iff$ [$A^C, B^C$가 독립]
 \end{center}}
 
+\prob{다음을 증명하여라.
+\begin{enumerate}
+	\item[(1)] 정리 5.8.
+	\item[(2)] 두 사건 $A, B$가 서로 배반사건이면, 사건 $A, B$는 종속이다. 
+\end{enumerate}
+}
+
+\prob{두 사건 $A, B$가 서로 독립이고 $\pr(A)=0.25, \pr(B)=0.4$ 일 때, 다음을 구하여라.
+\begin{enumerate}
+	\item[(1)] $\pr(A\cap B)$
+	\item[(2)] $\pr(A^C\cap B)$
+	\item[(3)] $\cndpr{A}{B^C}$
+	\item[(4)] $\cndpr{B^C}{A^C}$
+\end{enumerate}
+}
+
+\prob{두 사건 $A, B$가 서로 독립이고, $\pr(A\cup B) =0.8, \pr(A\cap B)=0.3$ 일 때, $\pr(A), \pr(B)$를 각각 구하여라. (단, $\pr(A)>\pr(B)$)}
+
 \defn{공사건이 아닌 사건 $A_1, \dots, A_n$에 대하여, $$\pr(A_i\cap A_j) = \pr(A_i)\pr(A_j) \quad \text{for all }1\leq i\neq j\leq n$$
 	이 성립하면 사건 $A_1, \dots, A_n$이 \textbf{쌍마다 독립}(pairwise independent)이라고 한다. }
 
-\defn{공사건이 아닌 사건 $A_1, \dots, A_n$에 대하여, $$\pr\left(\bigcap_{i=1}^n A_i\right) = \prod_{i=1}^n \pr(A_i)$$
+\defn{공사건이 아닌 사건 $A_1, \dots, A_n$가 있다. 임의의 $J\subset \{1, 2,\dots, n\}$ 에 대해
+	$$\pr\left(\bigcap_{i\,\in\, J} A_i\right) = \prod_{i\, \in\, J} \pr(A_i)$$
 	이 성립하면 사건 $A_1, \dots, A_n$이 \textbf{상호 독립}(mutually independent)이라고 한다. }
+
+\prob{사건 $A, B, C$에 대하여 $\pr(A\cap B\cap C) = \pr(A)\pr(B)\pr(C)$ 이지만 $A, B, C$ 가 상호 독립은 아닌 $A, B, C$의 예시를 찾아라.}\\
 
 \defn{동일한 시행을 반복할 때, 각 시행에서 일어나는 사건이 서로 독립이면 이러한 시행을 \textbf{독립시행}이라고 한다.}
 
 \thm{\textbf{(독립시행의 확률)} $1$회의 시행에서 사건 $A$가 일어날 확률을 $p$ 라 할 때, 이 시행을 $n$회 반복하는 독립시행에서 사건 $A$가 $r$번 일어날 확률은 다음과 같다. $${n\choose r} p^r(1-p)^r \quad \big(r=0, 1, \dots, n\big)$$}
+
+\prob{주사위를 한 번 던지는 시행에서 3의 배수의 눈이 나오는 사건을 $A$라 할 때, 다음 물음에 답하여라.
+\begin{enumerate}
+	\item[(1)] $\pr(A)$를 구하여라.
+	\item[(2)] 주사위를 20번 던지는 시행에서 사건 $A$가 12번 일어날 확률을 구하여라.
+	\item[(3)] 주사위를 100번 던지는 시행에서 사건 $A$가 $r$번 일어날 확률을 구하여라.
+\end{enumerate}
+}
 
 \thm{(\textbf{전확률공식} - Law of Total Probability) 표본공간 $S$의 분할인 사건 $A_1, \dots, A_n$에 대하여 다음이 성립한다.
 $$\pr(B) = \sum_{i=1}^n \pr(B\, |\, A_i)\,\pr(A_i)$$
 \textbf{증명.} $\ds \pr(B) = \pr\left( \bigcup_{i=1}^n\left(B\cap A_i\right)\right) = \sum_{i=1}^n \pr(B\cap A_i) = \sum_{i=1}^n\pr(B\, |\, A_i)\,\pr(A_i) $ \qed
 }
 
+\prob{H 대학의 통계학과 학생의 30\%는 1학년이고, 25\%는 2학년이고, 25\%는 3학년이고, 20\%는 4학년이라고 하자. 그런데 1학년의 50\%, 2학년의 30\%, 3학년의 10\%, 4학년의 2\%가 수학 과목의 수강생이라 한다. 통계학과 학생 중 한 학생을 임의로 선택할 때 그 학생이 수학 과목의 수강생일 확률을 구하여라.}\\
+
 \thm{(\textbf{베이즈 정리} - Bayes' Theorem) 사건 $A_1, \dots, A_n$이 표본공간 $S$의 분할이고 $\pr(B)>0$ 이면 다음이 성립한다.
-$$\pr(A_k \, |\, B) = \frac{\pr(B\,|\,A_k)\,\pr(A_k)}{\ds\sum_{i=1}^n \pr(B\, |\, A_i)\,\pr(A_i)}$$
-\textbf{증명.} 조건부확률의 정의와 전확률공식으로부터 자명. \qed
+$$\pr(A_k \, |\, B) = \frac{\pr(B\,|\,A_k)\,\pr(A_k)}{\ds\sum_{i=1}^n \pr(B\, |\, A_i)\,\pr(A_i)} \qquad (k=1, \dots, n)$$
+\textbf{증명.} 조건부확률의 정의와 전확률공식으로부터 자명하다. \qed
 }
+
+\prob{베이즈 정리를 증명하여라.}\\\\
+
+\prob{주머니 A에는 흰 공 3개, 검은 공 2개가 들어 있고, 주머니 B에는 흰 공 2개, 검은 공 3개가 들어 있다. 임의로 주머니 하나를 택하여 2개의 공을 동시에 꺼냈더니 모두 흰 공이었을 때, 그것이 주머니 B에서 나왔을 확률을 구하여라.}\\
+
+\prob{A 주머니에 흰 공 2개, 검은 공 5개, B 주머니에 흰 공 3개, 검은 공 4개가 들어있다. A 주머니에서 한 개의 공을 임의로 꺼내어 B 주머니에 넣은 다음 다시 B 주머니에서 하나의 공을 꺼내기로 한다. B에서 꺼낸 공이 흰 공일 때, A에서 B로 옮겨진 공이 흰 공이었을 확률을 구하여라.}\\
+
+\prob{어떤 지역의 결핵환자의 비율이 0.1\%로 알려져 있다. 결핵에 걸려있는지 알아보는 검사에서 결핵에 걸렸을 때 양성 반응이 나타날 확률은 95\%이고 그렇지 않을 때 양성 반응이 나타날 확률은 1.1\%라고 한다. 양성 반응이 나타났을 때 결핵에 걸렸을 확률을 구하여라.}
 
 
 \pagebreak
