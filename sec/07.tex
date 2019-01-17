@@ -1,0 +1,57 @@
+\section{이산확률분포}
+\defn{시행의 결과가 오직 성공(success, $s$) 또는 실패(failure, $f$)뿐이며, 각 시행이 독립이고, 성공의 확률이 $p$ 로 항상 일정한 시행을 \textbf{베르누이 시행}(Bernoulli trial)이라 한다. 성공하면 1, 실패하면 0을 값으로 갖는 확률변수를 \textbf{베르누이 확률변수}(Bernoulli random variable)라 한다.}
+
+\defn{베르누이 확률변수의 확률분포를 \textbf{베르누이 분포}(Bernoulli distribution)라 하고, $X$가 성공 확률이 $p$인 베르누이 분포를 따를 때, $X\sim\mathrm{Berr}(p)$ 와 같이 나타낸다.\footnote{$X$가 분포 $\mc{A}$ 를 따를 때, $X\sim \mc{A}$ 와 같이 표기한다.}}
+
+\prob{$X\sim \mathrm{Berr}(p)$ 일 때, $X$의 확률분포표를 구하고, $\ex(X)$와 $\var(X)$를 구하여라.}\\\\\\
+
+\defn{한 번의 시행에서 사건 $A$가 일어날 확률이 $p$로 일정할 때, $n$번의 독립시행에서 사건 $A$가 일어나는 횟수를 $X$라고 하면 확률변수 $X$의 확률분포를 \textbf{이항분포}(binomial distribution)라 하고 기호로 $\mr{B} (n, p)$ 와 같이 나타낸다.}
+
+\defn{성공 확률이 $p$인 베르누이 시행을 $n$번 독립적으로 반복 시행할 때, 성공 횟수의 분포를 \textbf{이항분포}라 한다. 즉, $i=1, \dots, n$ 에 대하여 $X_i\sim_{i.i.d} \mathrm{Berr}(p)$일 때,\footnote{$i.i.d$: independent and identically distributed.} 이항분포는 $n$개의 베르누이 확률변수의 합으로 정의된다.\footnote{따라서 $\mr{Berr}(p) = \mr{B}(1, p)$ 이다.}
+	$$\sum_{i=1}^n X_i= X \sim \mr{B}(n, p)$$ }\\
+
+\defn{$X\sim \mr{B}(n, p)$일 때, $X$의 확률질량함수는 다음과 같다.
+$$\pr(X=x) = {n\choose x}p^x(1-p)^{n-x} \qquad (x=0, \dots, n)$$ }
+
+\prob{다음 확률변수 $X$가 이항분포를 따르는지 조사하시오.
+\begin{enumerate}
+	\item[(1)] 10개의 동전을 동시에 던질 때 뒷면이 나오는 동전의 개수 $X$
+	\item[(2)] 검정 구슬 4개와 흰 구슬 2개 중에서 차례로 2개의 구슬을 꺼낼 때 나오는 흰 구슬의 개수 $X$
+	\item[(3)] 4지선다형 문제 12개에 임의로 답할 때 정답의 개수 $X$ 
+\end{enumerate}
+}
+
+\prob{타율이 0.2인 야구 선수가 10번의 타석에서 안타를 친 횟수를 $X$라 하자. $\pr(X\leq 9)$ 의 값을 구하여라.}\\
+
+\prob{$X\sim \mr{B}(n, p)$ 이면, $\ex(X) = np$, $\var(X) = np(1-p)$ 임을 보여라.}\\\\
+
+
+\prob{두 사람 A, B가 게임을 한다. 매 회 동전을 던져 앞면이 나오면 A가 이기고, 뒷면이 나오면 B가 이긴다. 10회 게임을 할 때, A가 이긴 횟수를 $X$, B가 이긴 횟수를 $Y$라 하자. $\ex(X), \: \ex(Y)$ 를 구하여라.}\\
+
+\prob{$X\sim \mr{B}(100, p)$ 라 하자. $X$의 분산이 최대일 때, $\ex(X)$의 값을 구하여라.}\\
+
+\defn{특성값 1의 개수가 $D$, 0의 개수가 $N-D$ 인 크기 $N$의 유한 모집단에서 크기 $n$인 랜덤 표본을 뽑을 때, 표본에서 1의 개수를 $X$라 하자. 이 때, 확률변수 $X$가 따르는 분포를 \textbf{초기하분포}(hypergeometric distribution)라 하고, 기호로는 $X\sim \mr{H}(N, D, n)$으로 나타낸다. 초기하분포의 확률질량함수는 다음과 같이 주어진다. $$\pr(X = x) = \frac{\ds{D\choose x}{N-D \choose n-x}}{\ds{N \choose n}} \qquad \big(\text{단, }\max\{0, n-N+D\}\leq x\leq \min\{n, D\}\big)$$}
+
+\thm{$X\sim \mr{H}(N, D, n)$ 일 때, 다음이 성립한다. $$\ex(X) = np,\quad \var(X) = np\left(1-p\right)\frac{N-n}{N-1} \quad \left(p=\frac{D}{N}\right)$$}
+
+\thm{$X\sim \mr{H}(N, D, n)$ 일 때, $N \gg n$ 이면 $X$는 근사적으로 $\mr{B}(n, D/N)$ 를 따른다.}
+
+\defn{성공 확률이 $p$인 베르누이 시행을 반복하여 최초로 성공할 때 까지의 시행 횟수를 $X$라 하자. 이 때, 확률변수 $X$는 \textbf{기하분포}(geometric distribution)을 따른다. 기하분포의 확률질량함수는 다음과 같이 주어진다. $$\pr(X=k) = p(1-p)^{k-1} \qquad (k=0, 1, \dots)$$}
+
+\prob{성공 확률이 $p$인 기하분포를 따르는 확률변수 $X$에 대하여 다음이 성립함을 보여라. $$\ex(X) = \frac{1}{p}, \quad \var(X) = \frac{1-p}{p^2}$$}\\
+
+\thm{실수열 $\{p_n\}$ ($0\leq p_i\leq 1$ for all $i$) 에 대하여 $\ds\lim_{n\rightarrow \infty} np_n = \lambda$ 라 하면 다음이 성립한다. $$\lim_{n\rightarrow \infty} {n\choose k}p_n^k(1-p_n)^{n-k} = e^{-\lambda}\frac{\lambda^k}{k!}$$} 
+
+\defn{정해진 시간 안에 어떤 사건이 일어날 횟수에 대한 기댓값을 $\lambda$라 할 때, 그 사건이 일어난 횟수를 $X$라 하자. 이 때, 확률변수 $X$는 \textbf{포아송 분포}(Poisson distribution)를 따르며, 기호로는 $X\sim \mr{Poi}(\lambda)$ 로 나타낸다. 포아송 분포의 확률질량함수는 다음과 같이 주어진다.
+	$$\pr(X=k) = e^{-\lambda}\frac{\lambda^k}{k!}\qquad(k=0, 1, \dots)$$
+}
+
+\thm{$X\sim \mr{B}(n, p)$ 일 때, $n$이 충분히 크면 $X\sim \mr{Poi}(np)$ 이다.\footnote{대략 $n\geq 100, np\leq 10$ 이면 근사할 수 있다.}}
+
+\prob{$X\sim \mr{Poi}(\lambda)$ 일 때, $\ex(X) = \lambda$, $\var(X)=\lambda$ 임을 보여라.}\\
+
+
+\prob{오후 3시부터 4시에 어느 병원에 도착하는 손님이 평균적으로 6.5명이라 하자. 오늘 오후 3시부터 4시 사이에 도착하는 손님 수에 대한 확률질량함수를 구하고, 도착한 손님이 4명일 확률, 최대 2명일 확률을 각각 구하여라.}\\\\\\\\\\
+
+
+\pagebreak
