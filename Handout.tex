@@ -8,6 +8,8 @@
 \usepackage{mathtools}
 \usepackage{geometry}
 \usepackage{amsthm}
+\usepackage{verbatim}
+\usepackage{pgfplots}
 \geometry{
 	top = 30mm,
 	left = 25mm,
@@ -30,6 +32,10 @@
 \newcommand{\prob}[1]{\begin{problem}#1\end{problem}~}
 
 \usepackage{titlesec}
+
+\pgfmathdeclarefunction{gauss}{2}{%
+	\pgfmathparse{1/(#2*sqrt(2*pi))*exp(-((x-#1)^2)/(2*#2^2))}%
+}
 
 \title{\textbf{Introductory Statistics}}
 \author{Sungchan Yi}
