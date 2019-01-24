@@ -1,0 +1,59 @@
+\section{통계적 추론}
+\defn{표본으로부터의 정보를 이용하여 모집단에 관한 추측이나 결론을 이끌어내는 과정을 \textbf{통계적 추론}(statistical inference)이라 한다. 모집단의 특성치(모수)에 대한 추측값을 제공하고 그 오차의 한계를 제시하는 과정을 \textbf{추정}(estimation)이라 하고, 다음 두 가지 종류가 있다.
+\begin{itemize}
+	\item \textbf{점추정}(point estimation): 모수의 참값이라고 추측되는 하나의 추정값을 제공
+	\item \textbf{구간추정}(interval estimation): 모수의 참값이 속할 것으로 기대되는 범위를 추측
+\end{itemize}
+}
+
+\defn{정의 및 표기법
+\begin{itemize}
+	\item \textbf{모수}(population parameter) $\theta$: 모집단의 특성을 나타내는 수치적 측도
+	\item 랜덤표본은 $X_1, \dots, X_n$, 랜덤표본의 관측값은 $x_1, \dots, x_n$ 으로 표기한다.
+	\item \textbf{추정량}(estimator): 미지의 모수 $\theta$의 추정에 사용되는 통계량으로, $\hat{\theta}(X_1, \dots, X_n)$ 혹은 $\hat{\theta}$으로 표기한다.
+	\item \textbf{추정값}(estimate): 추정량 $\hat{\theta}(X_1, \dots, X_n)$의 관측값으로, $\hat{\theta}(x_1, \dots, x_n)$로 표기한다.
+\end{itemize}
+추정량과 추정값의 관계는 확률변수와 그 관측값의 관계이다.\\
+모평균 $\mu$를 추정하기 위해 추정량으로는 표본평균 $\hat{\mu} = \overline{X} = \frac{1}{n}\sum_{i=1}^n X_i$ 을 사용하고, 그 추정값으로는 관측한 결과인 $\hat{\mu} = \overline{x} = \frac{1}{n}\sum_{i=1}^n x_i$ 를 사용한다.
+}
+
+\defn{$\ex(\hat{\theta}) = \theta$ 를 만족하는 추정량 $\hat{\theta}$를 \textbf{불편추정량}(unbiased estimator)이라 한다.\\
+추정량 $\hat{\mu} = \overline{X}$ 의 경우 $\ex(\overline{X}) = \mu$ 이므로 불편추정량이다.\footnote{표본분산 $\widehat{\sigma^2} = S^2$ 도 불편추정량이다. 사실 불편추정량이 되도록 $n-1$ 로 나눈 것이다...}
+}
+
+\defn{$\theta$의 추정량 $\hat{\theta}$의 표준편차를 \textbf{표준오차}(standard error)라 한다. 즉, $\mr{SE}(\hat{\theta}) = \sqrt{\var(\hat{\theta})}$ 이다. 표준오차는 추정량 $\hat{\theta}$의 흩어짐의 정도를 나타낸다.}\\
+
+\defn{랜덤표본 $X_1, \dots, X_n$ 으로부터 얻어진 두 추정량 $L(X_1,\dots, X_n), U(X_1,\dots, X_n)$에 대하여 $$\pr(L(X_1,\dots, X_n)<\theta <U(X_1,\dots, X_n)) = 1-\alpha$$
+가 성립할 때, 구간 $\big(L(X_1,\dots, X_n), U(X_1,\dots, X_n)\big)$를 $\theta$에 대한 $100(1-\alpha)\%$ \textbf{구간추정량}(interval estimator) 또는 \textbf{신뢰구간}(confidence interval)이라 한다. 주로
+$$\pr(\theta \leq L(X_1,\dots, X_n)) = \pr(\theta \geq U(X_1,\dots, X_n)) = \alpha/2$$ 를 만족하는 $L(X_1,\dots, X_n), U(X_1,\dots, X_n)$ 를 사용한다.}
+
+\thm{$X_1\dots, X_n \sim_{i.i.d} \mc{N}(\mu, \sigma^2)$ 일 때, 모평균 $\mu$ 에 대한 $100(1-\alpha)\%$ 신뢰구간은 $$\left(\overline{X}-z_{\alpha/2}\cdot \frac{\sigma}{\sqrt{n}}, \:\overline{X}+z_{\alpha/2}\cdot \frac{\sigma}{\sqrt{n}} \right)$$\\
+\textbf{증명}. $\overline{X} \sim \mc{N}(\mu, \sigma^2/n)$ 이므로 $Z = \dfrac{\overline{X}-\mu}{\sigma/\sqrt{n}} \sim \mc{N}(0, 1)$ 이고, $$\pr(Z> z_{\alpha/2}) = \pr(Z<-z_{\alpha/2} )= \alpha/2$$ 이므로
+$$\pr\left(\left|\frac{\overline{X}-\mu}{\sigma/\sqrt{n}}\right| \leq z_{\alpha/2}\right) = \pr\left(\overline{X}-z_{\alpha/2}\cdot \frac{\sigma}{\sqrt{n}}\leq \mu\leq \:\overline{X}+z_{\alpha/2}\cdot \frac{\sigma}{\sqrt{n}} \right)=1-\alpha$$\qed
+}
+
+\defn{구간추정량의 관측값 $L(x_1, \dots, x_n), U(x_1, \dots, x_n)$ 을 \textbf{구간추정값}(interval estimate) 또는 \textbf{신뢰구간}이라 한다.}\\
+\textbf{예제}. 정규모집단에서의 모평균 $\mu$에 대한 $100(1-\alpha)\%$ 신뢰구간은 $$\left(\overline{x}-z_{\alpha/2}\cdot \frac{\sigma}{\sqrt{n}}, \:\overline{x}+z_{\alpha/2}\cdot \frac{\sigma}{\sqrt{n}} \right)$$\\
+\textbf{참고}. $z_{0.05} = 1.645$, $z_{0.025} = 1.96$, $z_{0.005} = 2.756$ 임을 알아두면 좋다.\\
+
+\prob{미국임상영양학회지에 실린 한 기록에 의하면, 중앙아메리카의 원주민을 대상으로 49명의 표본조사를 한 결과 혈청 내의 콜레스테롤 양이 157mg/L 였다고 한다. 이들 원주민의 혈청 내 콜레스테롤 양이 표준편차가 30인 정규분포를 따를 때, 모평균 $\mu$에 대한 95\% 신뢰구간을 구하여라.}
+
+\thm{\textbf{모평균 $\mu$에 대한 추정 \underline{($\sigma$를 알 때)}}
+\begin{itemize}
+	\item 가정: $X_1, \dots, X_n \sim_{i.i.d} \mc{N}(\mu, \sigma^2)$, 모표준편차 $\sigma$는 알려진 값
+	\item 추정량과 추정값: $\hat{\mu}(X_1, \dots, X_n) = \overline{X}$, $\hat{\mu}(x_1, \dots, x_n) = \overline{x}$
+	\item 표준오차: $\mr{SE}(\hat{\mu}) = \sqrt{\var(\overline{X})} =\dfrac{\sigma}{\sqrt{n}}$
+	\item $100(1-\alpha)\%$ 오차한계: $z_{\alpha/2}\cdot \dfrac{\sigma}{\sqrt{n}}$
+	\item $100(1-\alpha)\%$ 신뢰구간: $\ds \left(\overline{X}-z_{\alpha/2}\cdot \frac{\sigma}{\sqrt{n}}, \:\overline{X}+z_{\alpha/2}\cdot \frac{\sigma}{\sqrt{n}} \right)$
+	\item $100(1-\alpha)\%$ 신뢰구간의 길이: $2\cdot z_{\alpha/2}\cdot \dfrac{\sigma}{\sqrt{n}}$
+\end{itemize}
+모집단이 정규분포가 아닌 경우에는 $n$이 충분히 클 때 근사적으로 성립한다.
+}
+
+\prob{표준편차가 5인 모집단의 평균을 신뢰도 99\%로 추정할 때, 모평균 $\mu$와 표본평균 $\overline{X}$의 차이가 0.5 이하가 되도록 하려면 적어도 몇 개의 표본을 조사해야 하는가?}
+
+\thm{$100(1-\alpha)$\% 오차한계를 $d$ 이하로 또는 $100(1-\alpha)$\% 신뢰구간의 길이를 $2d$ 이하로 하기 위한 최소 표본의 크기는 $n\geq \ds \left(\frac{z_{\alpha/2}\cdot \sigma}{d}\right)^2$ 인 최소의 정수이다.\\
+\textbf{증명}. 연습문제로 남긴다. \qed}
+
+
+위
