@@ -21,23 +21,28 @@
 \defn{연속확률변수 $X$가 모든 실수 값을 취하고, 확률밀도함수 $f(x)$가 다음과 같이 주어질 때, $$f(x) = \frac{1}{\sqrt{2\pi} \sigma} e^{-\frac{(x-\mu)^2}{2\sigma^2}} \qquad (-\infty < x<\infty)$$ $X$의 확률분포를 \textbf{정규분포}(normal distribution)라 하고, 평균이 $\mu$, 분산이 $\sigma^2$인 정규분포를 기호로 $\mc{N}(\mu, \sigma^2)$와 같이 나타낸다.}
 
 \thm{서로 독립인 확률변수 $X_i \sim \mc{N}(\mu_i, \sigma_i^2)$, 상수 $c_i$ $(i = 1,\dots, k)$ 에 대하여 $$X = \sum_{i=1}^k c_iX_i \sim \mc{N}\left(\sum_{i=1}^k c_i\mu_i,\: \sum_{i=1}^n c_i^2 \sigma_i^2\right)$$ 이 성립한다.}
-
 \begin{center}
-	\begin{tikzpicture}
-	\begin{axis}[
-		title = {표준정규분포 $\mc{N}(0, 1)$},
-		every axis plot post/.append style={
-		mark=none,domain=-4:4,samples=50,smooth},
-	axis x line*=bottom,
-	axis y line=none, enlargelimits=upper]
-	\addplot {gauss(0,1)};
-	\addlegendentry{$\mc{N}(0, 1)$}
-	\end{axis}
-	\end{tikzpicture}
+\begin{tikzpicture}
+
+\begin{axis}[
+title={표준정규분포 $\mc{N}(0, 1)$},
+mark=none, domain=0:10, samples=100,smooth,
+axis lines*=none, axis y line=none,
+height=6cm, width=10cm,
+xticklabels={-4, -3, -2, -1, 0, 1, 2, 3}, ytick=\empty,
+enlargelimits=false, clip=false, axis on top,
+grid = major]
+\addplot [fill=cyan!20, draw=none, domain=-3:3] {gauss(0,1)} \closedcycle;
+\addplot [fill=orange!20, draw=none, domain=-3:-2] {gauss(0,1)} \closedcycle;
+\addplot [fill=orange!20, draw=none, domain=2:3] {gauss(0,1)} \closedcycle;
+\addplot [fill=blue!20, draw=none, domain=-2:-1] {gauss(0,1)} \closedcycle;
+\addplot [fill=blue!20, draw=none, domain=1:2] {gauss(0,1)} \closedcycle;
+\end{axis}
+\end{tikzpicture}	
 \end{center}
 
 
-\defn{$\mc{N}(0, 1)$ 을 \textbf{표준정규분포}(standard normal distribution)라 하고, 확률밀도함수 $f(z)$는 다음과 같다. $$f(z) = \frac{1}{\sqrt{2\pi}}e^{-\frac{z^2}{2}} \qquad (-\infty < z <\infty)$$}
+\defn{$\mc{N}(0, 1)$ 을 \textbf{표준정규분포}(standard normal distribution)라 하고, 확률밀도함수 $f(z)$는 다음과 같다. $$f(z) = \frac{1}{\sqrt{2\pi}}e^{-\frac{z^2}{2}} \qquad (-\infty < z <\infty)$$}\\\\
 
 \thm{(\textbf{정규분포의 표준화}) $X\sim \mc{N}(\mu, \sigma^2)$ 일 때, $$Z = \frac{X-\mu}{\sigma} \sim \mc{N}(0, 1)$$가 성립하고, 이를 \textbf{정규분포의 표준화}(standardization)라 한다. 이렇게 표준화된 값을 \textbf{$z$-점수}($z$-score)라 하고, 다음이 성립한다. $$\pr(a\leq X\leq b) = \pr\left(\frac{a-\mu}{\sigma} \leq Z\leq \frac{b-\mu}{\sigma}\right)$$}\\
 
