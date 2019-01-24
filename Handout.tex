@@ -8,8 +8,14 @@
 \usepackage{mathtools}
 \usepackage{geometry}
 \usepackage{amsthm}
-\usepackage{verbatim}
 \usepackage{pgfplots}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{xcolor}
+\pgfplotsset{compat=1.7}
+\pgfmathdeclarefunction{gauss}{2}{\pgfmathparse{1/(#2*sqrt(2*pi))*exp(-((x-#1)^2)/(2*#2^2))}%
+}
+\graphicspath{ {./images/} }
 \geometry{
 	top = 30mm,
 	left = 25mm,
@@ -33,9 +39,6 @@
 
 \usepackage{titlesec}
 
-\pgfmathdeclarefunction{gauss}{2}{%
-	\pgfmathparse{1/(#2*sqrt(2*pi))*exp(-((x-#1)^2)/(2*#2^2))}%
-}
 
 \title{\textbf{Introductory Statistics}}
 \author{Sungchan Yi}
@@ -53,6 +56,7 @@
 \newcommand{\bi}{\mathbf{B}}
 \newcommand{\mc}[1]{\mathcal{#1}}
 \newcommand{\mr}[1]{\mathrm{#1}}
+\newcommand{\chisq}{\chi^2}
 \renewcommand{\qed}{\hfill\ensuremath{\square}}
 
 
@@ -70,6 +74,8 @@
 \input{./sec/06.tex}
 \input{./sec/07.tex}
 \input{./sec/08.tex}
+\input{./sec/09.tex}
+\input{./sec/10.tex}
 
 
 \end{document}
