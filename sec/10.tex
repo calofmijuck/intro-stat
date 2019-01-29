@@ -54,6 +54,149 @@ $$\pr\left(\left|\frac{\overline{X}-\mu}{\sigma/\sqrt{n}}\right| \leq z_{\alpha/
 
 \thm{$100(1-\alpha)$\% 오차한계를 $d$ 이하로 또는 $100(1-\alpha)$\% 신뢰구간의 길이를 $2d$ 이하로 하기 위한 최소 표본의 크기는 $n\geq \ds \left(\frac{z_{\alpha/2}\cdot \sigma}{d}\right)^2$ 인 최소의 정수이다.\\
 \textbf{증명}. 연습문제로 남긴다. \qed}
+\\
+이제 모표준편차 $\sigma$를 모를 때 모평균 $\mu$를 추정하는 방법을 살펴보자. 이 경우에는 $\sigma$를 그 추정량인 표본표준편차 $S$로 대신해야 한다. 이렇게 표본표준편차를 이용해 표준화하는 과정을 \textbf{스튜던트화}(Studentize)라고 한다. 9장에서 $t$-분포를 배우면서 표본평균을 표본표준편차를 이용해 표준화하면 자유도가 $n-1$인 $t$-분포를 따름을 배웠다.\\
 
+\thm{\textbf{모평균 $\mu$에 대한 추정 \underline{($\sigma$를 모를 때)},} 표본표준편차 $S$
+	\begin{itemize}
+		\item 가정: $X_1, \dots, X_n \sim_{i.i.d} \mc{N}(\mu, \sigma^2)$, 모표준편차 $\sigma$는 미지의 값
+		\item 추정량과 추정값: $\hat{\mu}(X_1, \dots, X_n) = \overline{X}$, $\hat{\mu}(x_1, \dots, x_n) = \overline{x}$
+		\item $100(1-\alpha)\%$ 오차한계: $t_{\alpha/2}(n-1)\cdot \dfrac{S}{\sqrt{n}}$
+		\item $100(1-\alpha)\%$ 신뢰구간: $\ds \left(\overline{X}-t_{\alpha/2}(n-1)\cdot \frac{S}{\sqrt{n}}, \:\overline{X}+t_{\alpha/2}(n-1)\cdot \frac{S}{\sqrt{n}} \right)$
+		\item $100(1-\alpha)\%$ 신뢰구간의 길이: $2\cdot t_{\alpha/2}(n-1)\cdot \dfrac{S}{\sqrt{n}}$
+	\end{itemize}
+	모집단이 정규분포가 아닌 경우에는 $n$이 충분히 클 때 근사적으로 성립한다.\\\\
+\textbf{증명}. 신뢰구간만 증명한다.\\
+$\overline{X} \sim \mc{N}(\mu, \sigma^2/n)$ 이므로 $T=\dfrac{\overline{X}-\mu}{S/\sqrt{n}} \sim t(n-1)$ 이고, $$\pr(T> t_{\alpha/2}(n-1)) = \pr(T<-t_{\alpha/2}(n-1) )= \alpha/2$$ 이므로
+$$\begin{aligned}
+1-\alpha &=\pr\left(\left|\frac{\overline{X}-\mu}{S/\sqrt{n}}\right| \leq t_{\alpha/2}(n-1)\right) \\&= \pr\left(\overline{X}-t_{\alpha/2}(n-1)\cdot \frac{S}{\sqrt{n}}\leq \mu\leq \:\overline{X}+t_{\alpha/2}(n-1)\cdot \frac{S}{\sqrt{n}} \right)
+\end{aligned}
+$$\qed
+}
+\\
+\textbf{주의}. 위 방법들은 \underline{모집단이 정규분포를 따를 때} 사용할 수 있다. 따라서 표본으로 자료가 주어진 경우에는 \textbf{정규분포 분위수 대조도}(normal distribution quantile-quantile plot)을 통해 자료분포의 분위수와 정규분포의 분위수를 비교하여 모집단의 분포가 정규분포라는 가정을 검토해야 한다.\\\\
+\textbf{참고}. $t$-분포표에서 자유도가 큰 경우에는 모든 자유도에 대해 확률 값이 계산되어 있지 않다. 이 경우에는 표의 자유도 중 실제 자유도보다 더 작으면서 가장 가까운 값을 사용한다.\\
 
-위
+\prob{정규분포를 따르는 모집단으로부터 64개의 자료를 관측한 결과 표본평균이 27, 표본표준편차가 5 였다. 모평균 $\mu$에 대한 99\% 신뢰구간을 구하여라.}
+\\
+통계적 추론을 할 때는 \textbf{통계적 가설}(statistical hypothesis)을 세워 모수에 대해 예상하거나 추측을 하고, 이를 \textbf{검정}한다.\\
+
+\defn{자료로부터의 강력한 증거에 의해 입증하고자 하는 가설을 \textbf{대립가설}(alternative hypothesis)이라 하고 $H_1$ 으로 나타낸다. 그리고 반대 증거를 찾기 위해 상정된 가설을 \textbf{귀무가설}(null hypothesis)이라 하고, $H_0$ 으로 나타내며, 대립가설에 반대되는 가설이다. 두 가설 중 어느 가설을 택할지 통계적으로 결정하는 과정을 \textbf{가설 검정}(hypothesis test)이라 한다.}\\
+\textbf{예제}. 어느 전구 공장의 기존 공정에서 전구의 수명이 평균 1200분, 표준편차 100분인 것으로 알려져 있다. 새로운 공정에 대하여 25개의 표본을 조사한 결과 표본평균이 1240분이었다. 새로운 공정으로 생산한 전구의 평균 수명 $\mu$에 대해 조사하려 한다.
+ \begin{itemize}
+	\item[(1)] 새로운 공법과 기존의 공법의 평균 수명이 다르다고 할 수 있는가?\\ 조사의 목적이 평균 수명이 달라졌다는 증거가 있는지 알아보기 위함이므로, \vspace{-3mm}
+	\begin{center}
+		$H_0$: $\mu=1200$ (평균 수명이 같다)\qquad $H_1$: $\mu \neq 1200$ (평균 수명이 다르다)
+	\end{center}\vspace{-3mm}
+	\item[(2)] 새로운 공법이 전구의 평균수명을 증가시켰다고 할 수 있는가?\vspace{-3mm}
+	\begin{center}
+		$H_0$: $\mu=1200$ (평균 수명이 같다)\qquad $H_1$: $\mu > 1200$ (평균 수명이 증가했다)
+	\end{center}\vspace{-3mm}	
+\end{itemize}~
+
+\defn{비교하는 값의 양쪽을 뜻하는 가설을 \textbf{양측가설}(two-sided hypothesis)이라 하고, 한쪽을 뜻하는 가설을 \textbf{단측가설}(one-sided hypothesis)이라 한다.}
+
+\defn{귀무가설에 대한 반증의 강도를 제공하는 과정을 \textbf{유의성검증}(test of significance)이라 한다. 이 과정에서 사용되는 통계량을 \textbf{검정통계량}(test statistic)이라 한다.}\\
+귀무가설과 대립가설은 모수에 관한 가설로 주어지므로, 유의성검증에서 찾고자 하는 증거는 그 모수의 추정량을 이용하여 찾게 된다. 따라서, 귀무가설에 반대되며 대립가설을 지지하는 증거는 모수의 추정값이 귀무가설 $H_0$에서 주어지는 모수의 값으로부터 대립가설 $H_1$의 방향으로 멀리 떨어질수록 강해진다.\\\\
+위 예제의 (2)에서 귀무가설과 대립가설이 각각 모평균에 관한 가설이므로, 표본평균 $\overline{X}$를 이용하여 유의성검증에서의 증거를 찾게 된다. 그렇다면 가설에 대한 반증의 강도는 어떻게 측정할지 의문이 들기 마련이다. 다음과 고려해 보자.
+\textbf{귀무가설 $H_0$가 사실일 때, 실제 관측값보다 더욱 $H_0$에 반대되며, $H_1$을 지지하는 조사 결과를 얻을 확률은 얼마인가?}\\\\
+위 예제에서 실제 관측값보다 더욱 $H_0$에 반대되며 $H_1$을 지지하는 조사의 결과는 $\overline{X}\geq 1240$ 이다. 이에 대한 확률을 계산해 보면
+$$\begin{aligned}
+\pr\left(\overline{X}\geq 1240\,|\, H_0 \text{ 가 참}\right) &= \pr\left(\frac{\overline{X}-1200}{100/\sqrt{25}}\geq \frac{1240-1200}{100/\sqrt{25}} \,\biggr|\, \mu=1200\right)\\
+&=\pr(Z\geq 2) = 0.0228
+\end{aligned}$$
+이다. 따라서, 무한히 같은 조사를 해도, 실제 조사 결과 $\overline{x}=1240$ 보다 더욱 강한 $H_0$의 반증을 얻을 기회는 2.28\% 이므로, 위 확률은 이 관측값이 얼마나 일어나기 어려운 것인지 나타내 준다. 즉, 귀무가설 $H_0$가 사실이 아님을 강하게 시사한다고 할 수 있다.\\
+
+\defn{검정통계량이 실제 관측된 값보다 대립가설을 지지하는 방향으로 더욱 치우칠 확률로서 귀무가설 $H_0$하에서 계산된 값을 \textbf{유의확률}(significance probability) 또는 $P$-값($p$-value)라 한다. 유의확률이 작을수록 $H_0$에 대한 반증이 강한 것을 뜻하며, 유의확률을 계산할 때는 $H_0$ 하에서 검정통계량의 분포를 이용한다.}\\
+반증이 ``강하다"는 상대적인 표현이므로, 가설검정을 할 때, 미리 기준값을 정해두고 유의확률을 그 기준값과 비교한다.
+
+\defn{귀무가설 $H_0$에 대한 반증의 강도에 대하여 미리 정해둔 기준값을 \textbf{유의수준}(significance level)이라 부르고, 흔히 $\alpha$로 나타낸다.}\\
+유의수준으로는 주로 $\alpha=0.1$, 0.05, 0.01 을 사용하며, 유의수준이 $\alpha$인 것은 [귀무가설에 대한 반증이 조사 결과보다 강하게 나타날 확률]이 $\alpha$ 이하일 것을 요구하는 것이다. 유의확률이 지정된 유의수준 $\alpha$ 이하로 나타나면, \textbf{유의수준 $\alpha$ 에서 유의하다}(statistically significant)고 하며, 이는 귀무가설에 대한 반증의 강도가 지정된 수준보다 강함을 의미한다. 따라서 귀무가설을 \textbf{기각}(reject)하고 대립가설을 채택한다.\\
+
+\defn{가설검정에서 오류의 종류
+\begin{center}
+	\begin{tabular}{c|c|c}
+		검정결과\textbackslash 실제상황 & $H_0$가 참 & $H_1$이 참\\
+		\hline
+		$H_0$ 채택 & 옳은 결정 & \small \textbf{제 2종의 오류}(Type II Error $\beta$) \\
+		\hline
+		$H_0$ 기각 & \small \textbf{제 1종의 오류}(Type I Error $\alpha$) & 옳은 결정
+	\end{tabular}
+\end{center}
+}\\
+유의수준을 $\alpha$로 지정한다는 것은 제 1종의 오류를 범할 확률의 허용한계를 $\alpha$로 미리 정해주는 것이다.\\
+
+\defn{정해진 유의수준에 따라, [귀무가설을 기각하게 되는 검정통계량의 관측값]의 범위를 \textbf{기각역}(rejection region)이라 한다.\footnote{기각역과 기각역이 아닌 영역을 나누는 기준이 되는 경계값을 critical value 라고도 한다.}}\\
+\textbf{가설검정의 절차}
+\begin{itemize}
+	\item 귀무가설과 대립가설을 설정한다. 유의성검증은 \textbf{귀무가설에 대한 반증의 강도}를 알아보기 위함임을 고려한다.
+	\item 유의수준 $\alpha$를 지정한다. 귀무가설에 대한 반증의 강도가 어느 정도이어야 하는지 고려한다.
+	\item 자료로부터 검정통계량의 관측된 값을 계산한다. 검정통계량은 가설에 관계되는 모수의 추정량을 이용한다.
+	\item (\textbf{유의확률} 사용) 검정통계량의 관측값으로부터 유의확률을 계산하여 유의수준보다 작으면 $H_0$를 기각한다. 그렇지 않으면 $H_0$를 채택한다.
+	\item (\textbf{기각역} 사용) 유의수준에 대한 기각역을 찾아 검정통계량의 관측값이 기각역에 속하면 $H_0$를 기각한다. 그렇지 않으면 $H_0$를 채택한다.
+\end{itemize}~
+
+\thm{\textbf{모평균 $\mu$에 대한 유의성검증 \underline{($\sigma$를 알 때)}} - $Z$ 검정
+\begin{itemize}
+	\item 가정: $X_1, \dots, X_n \sim_{i.i.d} \mc{N}(\mu, \sigma^2)$, 모표준편차 $\sigma$는 알려진 값. 혹은 모집단이 정규분포는 아니지만 $n$이 충분히 큰 경우 (중심극한정리)
+	\item 귀무가설 $H_0$: $\mu = \mu_0$
+	\item \textbf{검정통계량}: $\ds Z = \frac{\overline{X} - \mu_0}{\sigma/\sqrt{n}} \sim_{H_0} \mc{N}(0, 1)$,\quad \textbf{관측값}: $\ds z = \frac{\overline{x}-\mu_0}{\sigma/\sqrt{n}}$
+	\item 대립가설의 형태에 따른 기각역과 유의확률
+	\begin{center}
+		\begin{tabular}{c|c|c}
+			대립가설 & 유의수준 $\alpha$에서의 기각역 & 유의확률\\ \hline
+			$H_1$: $\mu >\mu_0$ & $z\geq z_\alpha$ & $\pr\left(Z\geq z\right)$\\ 
+			$H_1$: $\mu <\mu_0$ & $z\leq - z_\alpha$ & $\pr\left(Z\leq z\right)$\\ 
+			$H_1$: $\mu \neq \mu_0$ & $\left|z\right|\geq z_{\alpha/2}$ & $\pr\left(\left|Z\right|\geq \left|z\right|\right)$
+		\end{tabular}
+	\end{center}
+\end{itemize}
+}
+
+\prob{한 제약 회사의 연구개발부에서 특정 약품의 주성분의 농도가 평균이 $\mu$이고 표준편차가 0.0123 인 정규분포를 따른다고 한다. 이 연구개발부에서는 이론적으로 주성분의 농도가 0.85 일 것이라고 예상하는 제조법을 창안하였다. 제조와 측정의 기술적, 비용적 측면을 고려하여 3번 반복 측정한 결과 주성분 농도의 평균이 $\overline{x}=0.8404$ 이었다. 이 제조법에 의한 주성분의 실제 농도 $\mu$가 0.85 가 아니라고 의심할 만한 증거가 있는가? 유의수준 0.05에서 검정하여라.}\\
+
+\thm{\textbf{모평균 $\mu$에 대한 유의성검증 \underline{($\sigma$를 모를 때)}} - $t$ 검정
+	\begin{itemize}
+		\item 가정: $X_1, \dots, X_n \sim_{i.i.d} \mc{N}(\mu, \sigma^2)$, 모표준편차 $\sigma$는 미지의 값. 혹은 모집단이 정규분포는 아니지만 $n$이 충분히 큰 경우 (중심극한정리)
+		\item 귀무가설 $H_0$: $\mu = \mu_0$
+		\item \textbf{검정통계량}: $\ds T = \frac{\overline{X} - \mu_0}{S/\sqrt{n}}\sim_{H_0}t(n-1)$,\quad \textbf{관측값}: $\ds t = \frac{\overline{x}-\mu_0}{s/\sqrt{n}}$ ($s$: 표본표준편차)
+		\item 대립가설의 형태에 따른 기각역과 유의확률
+		\begin{center}
+			\begin{tabular}{c|c|c}
+				대립가설 & 유의수준 $\alpha$에서의 기각역 & 유의확률\\ \hline
+				$H_1$: $\mu >\mu_0$ & $t\geq t_{\alpha}(n-1)$ & $\pr\left(T\geq t\right)$\\ 
+				$H_1$: $\mu <\mu_0$ & $t\leq -t_{\alpha}(n-1)$ & $\pr\left(T\leq t\right)$\\ 
+				$H_1$: $\mu \neq \mu_0$ & $\left|t\right|\geq t_{\alpha/2}(n-1)$ & $\pr\left(\left|T\right|\geq \left|t\right|\right)$
+			\end{tabular}
+		\end{center}
+	\end{itemize}
+}
+
+\prob{전구를 생산하는 회사에서 현재 생산하는 전구의 수명은 평균이 1950시간인 정규분포를 따른다고 알려져 있다. 새롭게 개발중인 전구의 평균수명 $\mu$가 기존의 전구보다 수명이 더 길다고 할 수 있는가 확인하기 위해 9개의 시제품을 생산하여 그 수명시간을 조사한 결과가 다음과 같다.
+\begin{center}
+	2000, 1975, 1900, 2000, 1950, 1850, 1950, 2100, 1975
+\end{center} 적절한 가설을 세우고, 유의수준 5\%에서 검정하여라.
+}\\\\
+
+\defn{제 2종의 오류를 범하지 않을 확률을 \textbf{검정력}(power)이라 한다. 제 2종의 오류를 범할 확률을 주로 $\beta$로 두며, 이때 검정력은 $1-\beta$가 된다.}
+
+\prob{연습문제 10.22 에서 실제로 $\mu=0.84$ 일 때, 검정력을 구하여라.}\\\\
+
+\thm{표준편차를 알고있는 정규모집단 $\mc{N}(\mu, \sigma)$ 에서의 표본에 대해, 유의수준 $\alpha$인 $H_0$: $\mu = \mu_0$, $H_1$: $\mu>\mu_0$ 의 검정에서 실제로 $\mu=\mu_1$($>\mu_0$) 일 때, 제 2종의 오류를 범할 확률이 $\beta$ 이하가 되기 위한 표본의 크기 $n$은 다음을 만족하는 최소의 정수이다.
+$$n \geq \left(\frac{z_\alpha+z_\beta}{(\mu_1-\mu_0)/\sigma}\right)^2$$
+\textbf{증명}. 제 2종의 오류를 범할 확률이 $\beta$ 이하가 되어야 하므로,
+$$\begin{aligned}
+	\pr\left(\frac{\overline{X}-\mu_0}{\sigma/\sqrt{n}} < z_\alpha \,\biggr|\, \mu=\mu_1 \right) &= \pr\left(\frac{\overline{X}-\mu_1}{\sigma/\sqrt{n}} + \frac{\mu_1-\mu_0}{\sigma/\sqrt{n}} < z_\alpha \,\biggr|\, \mu=\mu_1 \right)\\ &=\pr\left(\frac{\overline{X}-\mu_1}{\sigma/\sqrt{n}} < z_\alpha -\frac{\mu_1-\mu_0}{\sigma/\sqrt{n}} \,\biggr|\, \mu=\mu_1\right) < \beta
+\end{aligned}$$ 가 성립해야 한다. $\ds \frac{\overline{X}-\mu_1}{\sigma/\sqrt{n}}\sim \mc{N}(0, 1)$ 이므로,
+$$-z_\beta \geq z_\alpha -\frac{\mu_1-\mu_0}{\sigma/\sqrt{n}} $$ 이 성립하고, 이를 $n$에 대해 정리하면 원하는 결론을 얻는다. \qed
+}
+
+\prob{한 제약회사에서 생산하고 있는 기존의 진통제는 진통 효과가 나타나는 시간이 평균 30분, 표준편차 5분인 것으로 알려져 있다. 회사의 연구소에서 진통 효과가 더 빨리 나타날 것으로 기대되는 새로운 진통제를 개발하였다. 새로운 진통제의 진통효과가 더 빠른가를 확인하기 위하여, 50명의 환자를 랜덤추출하여 새로운 진통제에 의해 그 효과가 나타나는 시간을 측정한 결과 평균이 28.5분이었다. 새로운 진통제에 의한 진통 효과가 나타나는 시간이 표준편차 5분인 정규분포를 따른다고 하자. 다음 물음에 답하여라.
+\begin{enumerate}
+	\item[(1)] 적절한 가설을 유의수준 5\%에서 검정하여라.
+	\item[(2)] 유의수준 5\%에서 검정할 때, 제 1종의 오류를 범할 확률을 구하여라.
+	\item[(3)] 실제로 $\mu=28$ 일 때, 제 2종의 오류를 범할 확률이 $\beta=0.10$ 이하가 되도록 하며, 유의수준 5\%인 검정법을 사용하려고 한다. 이 때, 요구되는 표본의 최소 크기를 구하여라.
+\end{enumerate}	
+}
+
+\pagebreak
