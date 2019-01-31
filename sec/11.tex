@@ -1,0 +1,64 @@
+\section{분포에 대한 추론}
+통계적 추론을 필요로 하는 많은 문제들은 하나의 모집단에 관한 것이라기 보다는 여러 모집단을 비교하기 위한 경우가 더 많다. \\\\
+\textbf{예제}. 두 종류의 진통제에 대한 상대적 효과의 척도로서, 복용 후 숙면할 수 있는 정도를 비교하려고 한다. 비교 실험에 참여하는 환자 6명을 랜덤추출 했으나 각 환자들의 건강상태에는 상당한 차이가 있으므로, 각 환자에게 두 종류의 진통제를 각각 1회씩 복용하게 하여 숙면시간의 차이를 이용하여 두 진통제의 효과를 비교하기로 하였다.\\
+\begin{center}
+	\begin{tabular}{c|c|c|c|c|c|c}
+		환자 & 1& 2&3&4&5&6 \\\hline
+		진통제 A&4.8&4.0&5.8&4.9&5.3&7.4 \\\hline
+		진통제 B&4.0&4.2&5.2&4.9&5.6&7.1
+	\end{tabular}
+\end{center}~\\
+두 진통제의 효과에 차이가 있는가?\\\\
+
+\defn{~
+\begin{itemize}
+	\item \textbf{실험 단위}(experimental unit): 비교의 목적을 위해 그 매개체로 사용되는 대상
+	\item \textbf{처리}(treatment): 실험 단위에 적용되어 특성치를 결정지어주는 것
+	\item \textbf{처리 효과}(treatment effect): 비교 대상인 특성치
+	\item \textbf{대응비교} 또는 \textbf{쌍체비교}(paired comparison): 두 모집단의 평균을 비교할 때 실험 단위를 동질적인 쌍으로 묶은 다음, 각 쌍에 두 처리를 임의로 적용하고, 각 쌍에서 모은 관측값의 차로 처리효과의 차에 관한 추론을 하는 방법
+\end{itemize}
+}
+
+\prob{위 \textbf{예제}의 상황에 사용되는 방법이 대응비교이다. 예제에서 실험단위, 처리, 처리효과를 찾아보아라.}\\
+
+\thm{\textbf{대응비교의 자료구조 및 모형}
+\begin{itemize}
+	\item 자료구조: 랜덤표본 $(X_1, Y_1), \dots, (X_n, Y_n)$
+	\begin{center}
+		\begin{tabular}{c|c|c|c}
+			쌍&처리 1&처리 2&처리효과의 차\\\hline
+			1 & $X_1$ & $Y_1$ & $D_1 = X_1-Y_1$\\\hline 
+			2 & $X_2$ & $Y_2$ & $D_2 = X_2-Y_2$\\\hline 
+			$\vdots$ & $\vdots$ & $\vdots$ & $\vdots$\\\hline
+			$n$ & $X_n$ & $Y_n$ & $D_n = X_n-Y_n$
+		\end{tabular}
+	\end{center}
+	\item 처리효과: $\ex(X_i) = \mu_1$, $\ex(Y_i) = \mu_2$
+	\item 처리효과의 차: $\delta = \mu_1-\mu_2$
+	\item 차에 대한 가정: $D_i = X_i-Y_i \sim_{i.i.d}\mc{N}(\delta, \sigma_D^2)$, $i = 1, \dots, n$. ($\sigma_D$ 는 미지의 값)
+	\item $\mu_1-\mu_2$ 에 대한 추정량: $\widehat{\mu_1-\mu_2} = \hat{\delta} = \overline{D} = \ds \frac{1}{n}\sum_{i=1}^{n}D_i$
+	\item $\mu_1-\mu_2$에 대한 $100(1-\alpha)\%$ 신뢰구간: $$\left(\overline{d} - t_{\alpha/2}(n-1)\cdot\frac{s_D}{\sqrt{n}},\: \overline{d}+t_{\alpha/2}(n-1)\cdot\frac{s_D}{\sqrt{n}} \right)$$
+	단, $\ds s_D^2 = \frac{1}{n-1}\sum_{i=1}^n(d_i-\overline{d})^2$.
+\end{itemize}}\\
+\textbf{참고}. $D_i\sim_{i.i.d}\mc{N}(\delta, \sigma_D^2)$ 이므로 $\overline{D} \sim \mc{N}(\delta, \sigma_D^2/n)$ 이다. 모표준편차를 알지 못하므로, 추정을 위해 표본표준편차를 사용하며, 분포는 $t$-분포를 사용한다. 표준화하면, $$T = \frac{\overline{D}-\delta}{S_D/\sqrt{n}} \sim t(n-1)$$ 가 됨을 알 수 있다. 이로부터 신뢰구간을 구하면 된다.\\\\
+
+\prob{위 \textbf{예제}에서 주어진 자료를 이용하여 두 진통제 $A, B$에 의한 평균 숙면시간의 차이에 대한 95\% 신뢰구간을 구하여라.}\\
+
+\thm{\textbf{대응비교에 의한 두 모평균의 비교} - $t$ 검정
+	\begin{itemize}
+		\item 가정: 대응비교의 자료구조에서의 가정과 동일
+		\item 귀무가설 $H_0$: $\mu_1-\mu_2 = \delta_0$
+		\item \textbf{검정통계량}: $\ds T = \frac{\overline{D} - \delta_0}{S_D/\sqrt{n}}\sim_{H_0}t(n-1)$,\quad \textbf{관측값}: $\ds t = \frac{\overline{d}-\delta_0}{s_D/\sqrt{n}}$ ($s_D$: 표본표준편차)
+		\item 대립가설의 형태에 따른 기각역과 유의확률
+		\begin{center}
+			\begin{tabular}{c|c|c}
+				대립가설 & 유의수준 $\alpha$에서의 기각역 & 유의확률\\ \hline
+				$H_1$: $\mu_1-\mu_2 >\mu_0$ & $t\geq t_{\alpha}(n-1)$ & $\pr\left(T\geq t\right)$\\ 
+				$H_1$: $\mu_1-\mu_2 <\mu_0$ & $t\leq -t_{\alpha}(n-1)$ & $\pr\left(T\leq t\right)$\\ 
+				$H_1$: $\mu_1-\mu_2 \neq \mu_0$ & $\left|t\right|\geq t_{\alpha/2}(n-1)$ & $\pr\left(\left|T\right|\geq \left|t\right|\right)$
+			\end{tabular}
+		\end{center}
+	\end{itemize}
+}
+
+\prob{\textbf{예제}에서 주어진 자료를 활용하여 두 진통제의 효과에 차이가 있는지 유의수준 1\%에서 검정하여라. 그리고 유의확률도 구하여라.}
