@@ -54,7 +54,7 @@ $$\ex(\overline{X}) = \ds \frac{1}{n}\ex(X_1+\cdots + X_n) = \frac{n\mu}{n} = \m
 \defn{확률변수 $Z_1, \dots, Z_k$ 이 $\mc{N}(0, 1)$의 랜덤표본일 때, $V = Z_1^2+\cdots+Z_k^2$ 의 분포를 \textbf{자유도}(degrees of freedom) $k$인 \textbf{카이제곱분포}($\chi^2$-distribution)라고 한다. 기호로는 다음과 같이 나타낸다. $$Z_1^2+\cdots+Z_k^2 = V \sim \chi^2(k)$$그리고 확률밀도함수는 다음과 같다.\footnote{$\Gamma$ 는 감마함수(Gamma function)을 나타내는 기호이다.} $$\frac{1}{2^{k/2}\Gamma(k/2)}x^{k/2-1}e^{-x/2} \qquad (x > 0)$$}
 
 \begin{center}
-	\includegraphics[width=10.098cm, height=8cm]{chisq.png}\\
+	\includegraphics[width=10.4cm, height=7cm]{chisq.png}\\
 	$\chi^2$-분포의 형태 ($k$: 자유도)
 \end{center}
 
@@ -92,7 +92,7 @@ $$\sum_{i=1}^n \left(\frac{X_i-\mu}{\sigma}\right)^2 = \sum_{i=1}^n \left(\frac{
 \thm{$X_1, \dots, X_n$ 이 $\mc{N}(\mu, \sigma^2)$의 랜덤표본일 때, 다음이 성립한다. $$\frac{\overline{X}-\mu}{S/\sqrt{n}}\sim t(n-1)$$
 \textbf{증명}. 다음 변형을 이용한다.
 $$\frac{\overline{X}-\mu}{S/\sqrt{n}} = \frac{\left(\overline{X}-\mu\right) / \left(\dfrac{\sigma}{\sqrt{n}}\right)}{\sqrt{\dfrac{(n-1)S^2}{\sigma^2}/ (n-1)}}$$
-$\ds \frac{\overline{X}-\mu}{\sigma/\sqrt{n}} \sim \mc{N}(0, 1)$ 이고, $\dfrac{(n-1)S^2}{\sigma^2} \sim \chisq(n-1)$ 이며, $\overline{X}$ 와 $S^2$은 서로 독립임이 알려져 있다. $t$-분포의 정의에 의해 성립한다.\qed
+$\ds \frac{\overline{X}-\mu}{\sigma/\sqrt{n}} \sim \mc{N}(0, 1)$ 이고, $\dfrac{(n-1)S^2}{\sigma^2} \sim \chisq(n-1)$ 이며, $\overline{X}$ 와 $S^2$은 서로 독립임이 알려져 있다.\footnote{일반적으로는 독립이 아니다. 이 정리의 가정 하에서만 독립이다. See Basu's Theorem.} $t$-분포의 정의에 의해 성립한다.\qed
 }
 
 \thm{분산이 동일한 두 정규모집단 $\mc{N}(\mu_1, \sigma^2)$, $\mc{N}(\mu_2, \sigma^2)$ 에서 각각 뽑은 랜덤표본 $X_1, \dots, X_{n_1}$ 과 $Y_1, \dots, Y_{n_2}$ 이 서로 독립이라고 하자. $X_i, Y_i$ 의 표본분산 $S_1^2, S_2^2$, 합동표본분산 $S_p^2$에 대하여 다음이 성립한다. $$\frac{(\overline{X}-\overline{Y}) - (\mu_1-\mu_2)}{S_p \sqrt{\dfrac{1}{n_1}+\dfrac{1}{n_2}}} \sim t(n_1+n_2-2)$$

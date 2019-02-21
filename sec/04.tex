@@ -1,5 +1,5 @@
 \section{확률의 뜻과 활용}
-
+확률은 모집단에서 표본을 추출할 때, 특정 성질을 만족하는 표본이 관측될 가능성에 대한 측도로, 표본을 바탕으로 \textbf{모집단에 대한 결론을 이끌어낼 때 논리적 근거}가 된다.
 \defn{같은 조건 아래에서 반복할 수 있고, 그 결과가 우연에 의하여 결정되는 실험이나 관찰을 \textbf{시행}이라고 한다. 어떤 시행에서 일어날 수 있는 모든 가능한 결과 전체의 집합을 \textbf{표본공간}(sample space $S$)이라 하고, 표본공간의 부분집합을 \textbf{사건}(event)이라고 한다.}
 
 \defn{표본공간의 부분집합 중에서 원소의 개수가 한 개인 집합을 \textbf{근원사건}이라 하고, 반드시 일어나는 사건은 \textbf{전사건}, 절대로 일어나지 않는 사건은 \textbf{공사건}($\varnothing$)이라 한다.}
@@ -7,7 +7,14 @@
 
 \defn{두 사건 $A, B$에 대하여, $A$ 또는 $B$가 일어나는 사건을 $A$와 $B$의 \textbf{합사건}이라 하고, $A\cup B$ 로 나타낸다. 그리고 $A$와 $B$가 동시에 일어나는 사건을 $A$와 $B$의 \textbf{곱사건}이라 하고, $A\cap B$ 로 나타낸다.}
 
-\defn{표본공간 $S$의 부분집합인 두 사건 $A, B$에 대하여 $A\cap B = \varnothing$ 이면 $A$와 $B$는 서로 \textbf{배반사건}이라 한다. 또, 사건 $A$가 일어나지 않는 사건을 사건 $A$의 \textbf{여사건}이라 하고, $A^C$로 나타낸다.}
+\defn{표본공간 $S$의 부분집합인 두 사건 $A, B$에 대하여 $A\cap B = \varnothing$ 이면 $A$와 $B$는 서로 \textbf{배반사건}(disjoint)이라 한다. 또, 사건 $A$가 일어나지 않는 사건을 사건 $A$의 \textbf{여사건}이라 하고, $A^C$로 나타낸다.}
+
+\defn{표본공간 $S$의 공사건이 아닌 사건 $A_1, \dots, A_n$이 다음 조건을 만족하면,
+\begin{enumerate}
+	\item[(1)] $\ds \bigcup_{i=1}^n A_i = S$
+	\item[(2)] $A_i\cap A_j = \varnothing\:$  $\big(\text{for all }1\leq i \neq j \leq n\big)$ \quad (pairwise disjoint)
+\end{enumerate} 사건 $A_1, \dots, A_n$을 $S$의 \textbf{분할}(partition)이라 한다.
+}
 
 \defn{어떤 시행에서 사건 $A$가 일어날 가능성을 수로 나타낸 것을 사건 $A$가 일어날 \textbf{확률}이라 하고, 기호로 $\pr(A)$와 같이 나타낸다.}
 
@@ -20,19 +27,21 @@
 \defn{(확률의 공리 - Axioms of Probability) 표본공간 $S$와 사건 $A$에 대하여,
 \begin{enumerate}
 	\item[(1)] $0\leq \pr(A)\leq 1$
-	\item[(2)] $\pr(S) = 1$
+	\item[(2)] $\pr(S) = 1$ \vspace{-1.5mm}
 	\item[(3)] 서로 배반인 사건열 $A_1, A_2, \dots$ 에 대해 $\ds \pr\left(\bigcup_{i=1}^\infty A_i\right) = \sum_{i=1}^\infty \pr(A_i)$
 \end{enumerate}
 }
 
-\thm{\textbf{(확률의 기본 성질)} 
+\thm{\textbf{(확률의 기본 성질)} 사건 $A, B$에 대하여 다음이 성립한다.
 \begin{enumerate}
 	\item[(1)] $\pr(\varnothing) = 0$
 	\item[(2)] $\pr(A\cup B) = \pr(A) + \pr(B) - \pr(A\cap B)$ \quad \textbf{(확률의 덧셈정리)}
 	\item[(3)] $\pr(A^C) = 1-\pr(A)$ \quad (여사건의 확률)
+
 \end{enumerate}
 }
 
+\thm{사건 $A, B, C$에 대하여 다음이 성립한다. $$\pr(A\cup B\cup C) = \pr(A) + \pr(B) +\pr(C) - \pr(A\cap B)-\pr(B\cap C) - \pr(C\cap A) + \pr(A\cap B\cap C)$$}
 \thm{\textbf{(포함 배제 원리)} 사건 $A_1, \dots, A_n$에 대하여 다음이 성립한다.
 $$\pr\left(\bigcup_{i=1}^n A_i\right) = \sum_{k=1}^n (-1)^{k+1} \left(\sum_{1\leq i_1<\cdots< i_k\leq n} \pr\left(A_{i_1}\cap \cdots \cap A_{i_k}\right)\right)$$
 }
