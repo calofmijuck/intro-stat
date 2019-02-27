@@ -1,0 +1,338 @@
+\section{이산 자료의 분석}
+\defn{두 가지 특성값만 가지는 모집단에서 특정한 속성을 갖는 개체의 비율을 \textbf{모비율}(population proportion)이라 하고 기호로 $p$ 로 나타낸다.\\무한모집단에서 어떤 속성의 비율이 $p$ 이고, 크기가 $n$인 랜덤표본에서 그 속성을 갖는 것의 개수를 $X$라고 할 때, 표본에서 그 속성을 갖는 것의 비율인 \textbf{표본비율}(sample proportion) $$\widehat{p} = \frac{X}{n}$$ 을 이용하여 모비율 $p$ 를 추정한다.}
+
+\thm{무한모집단에서 어떤 속성의 비율이 $p$ 이고, 크기가 $n$인 랜덤표본에서 그 속성을 갖는 것의 개수를 $X$라고 할 때, 다음이 성립한다.
+\begin{itemize}
+	\item[(1)] $X \sim \mr{B}(n, p)$
+	\item[(2)] $\ex(\widehat{p}) = p$, $\var(\widehat{p}) = \ds \frac{p(1-p)}{n}$
+\end{itemize}
+}
+
+\thm{\textbf{모비율에 대한 추정} (표본 크기가 클 때)\\
+$n$이 충분히 크면\footnote{$n\widehat{p} = X\geq 5$, $n(1-\widehat{p}) = n - X\geq 5$} $X\sim \mc{N}\big(np, np(1-p)\big)$ 이다.
+\begin{itemize}
+	\item $Z = \ds \frac{\widehat{p}-p}{\sqrt{\widehat{p}(1-\widehat{p})/n}} \sim \mc{N}(0, 1)$ (근사적으로) \footnote{표본비율로부터 얻은 표준편차를 사용해도 된다.}
+	\item $p$ 에 대한 $100(1-\alpha)\%$ 신뢰구간: $$\left(\widehat{p} - z_{\alpha/2} \sqrt{\frac{\widehat{p}(1-\widehat{p})}{n}},\; \widehat{p} + z_{\alpha/2} \sqrt{\frac{\widehat{p}(1-\widehat{p})}{n}}\right)$$
+\end{itemize}
+}
+
+\prob{정리 12.2 (2)를 증명하고 $p$ 에 대한 $100(1-\alpha)\%$ 신뢰구간을 유도하여라.}\\\\
+\pagebreak
+
+\prob{국내 가구 중 단순랜덤추출한 500 가구 중에서 79 가구가 올해 이사하려 한다. 올해 국내 가구의 이사율 $p$ 에 대한 95\% 신뢰구간을 구하여라.}
+
+\thm{$100(1-\alpha)\%$ 오차한계를 $d$ 이하로, 또는 신뢰구간의 길이를 $2d$ 이하로 하기 위한 표본의 크기는 다음이 만족되도록 정한다.
+\begin{itemize}
+	\item 모비율의 사전 추정값이 $p^*$ 로 주어진 경우
+	$$n \geq p^*(1-p^*)\left(\frac{z_{\alpha/2}}{d}\right)^2$$
+	\item 모비율에 대한 사전 정보가 없는 경우
+	$$n \geq \frac{1}{4}\left(\frac{z_{\alpha/2}}{d}\right)^2$$
+\end{itemize}
+\textbf{증명}. 연습문제로 남긴다. \qed
+}
+
+\prob{어느 지역의 대표 선거에 갑, 을 두 명의 후보가 입후보하였을 때, 이 두 후보에 대한 지지율을 알아보고자 한다. 사전 정보가 없는 상태에서 갑 후보의 지지율에 대한 추정의 $95\%$ 오차한계를 $3\%$ 이내로 하려면 필요한 표본의 크기는 얼마인가?}
+
+\thm{\textbf{모비율의 유의성검증} (표본의 크기가 큰 경우)
+\begin{itemize}
+	\item 귀무가설 $H_0$: $p = p_0$ 에 대한 검정
+	\begin{itemize}
+		\item 검정통계량: $Z = \ds \frac{\widehat{p} -p_0}{\sqrt{p_0(1-p_0)/n)}} \sim_{H_0} \mc{N}(0, 1)$ 
+		\item 관측값: $z = \ds \frac{x/n - p_0}{\sqrt{p_0(1-p_0)/n}}$
+	\end{itemize}
+	\item 대립가설의 형태에 따른 기각역과 유의확률
+	\begin{center}
+		\begin{tabular}{c|c|c}
+			대립가설 & 유의수준 $\alpha$에서의 기각역 & 유의확률\\ \hline
+			$H_1$: $p >p_0$ & $z\geq z_\alpha$ & $\pr\left(Z\geq z\right)$\\ 
+			$H_1$: $p < p_0$ & $z\leq - z_\alpha$ & $\pr\left(Z\leq z\right)$\\ 
+			$H_1$: $p \neq p_0$ & $\left|z\right|\geq z_{\alpha/2}$ & $\pr\left(\left|Z\right|\geq \left|z\right|\right)$
+		\end{tabular}
+	\end{center} 
+\end{itemize}
+}
+\pagebreak
+
+\prob{연습문제 12.5 에서 작년의 이사율이 20\% 였다고 하자. 표본조사 결과에 의하면 올해 이사하려는 가구의 비율이 작년에 비하여 줄어들었다고 할 수 있는지 유의수준 1\% 에서 검정하여라.}
+
+\thm{\textbf{두 모비율의 비교}
+\begin{itemize}
+	\item 자료구조: 두 가지 특성값만 가지는 모비율이 $p_1, p_2$인 두 모집단에서 각각 $n_1, n_2$개의 랜덤표본을 서로 독립적으로 추출한다.
+	$$X_1 \sim \mr{B}(n_1, p_1), \; X_2 \sim \mr{B}(n_2, p_2),\; X_1\indep X_2$$
+	$$\widehat{p_1} =\frac{X_1}{n_1},\; \widehat{p_2} =\frac{X_2}{n_2}$$
+	\item $p_1-p_2$ 의 추정량: $\widehat{p_1-p_2} = \widehat{p_1}-\widehat{p_2} = \ds \frac{X_1}{n_1} -\frac{X_2}{n_2}$
+	\item $\ex(\widehat{p_1-p_2}) = p_1-p_2$, $\var(\widehat{p_1-p_2}) = \ds \frac{p_1(1-p_1)}{n_1} + \frac{p_2(1-p_2)}{n_2}$
+\end{itemize}
+}
+
+\thm{\textbf{두 표본에 의한 모비율의 추정} ($n_1, n_2$가 클 때)
+\begin{itemize}
+	\item 표본의 크기가 충분히 크면 다음이 근사적으로 성립한다.
+	$$Z = \frac{\widehat{p_1-p_2} - (p_1-p_2)}{\ds \sqrt{\frac{\widehat{p_1}(1-\widehat{p_1})}{n_1} +\frac{\widehat{p_2}(1-\widehat{p_2})}{n_2}}} \sim \mc{N}(0, 1)$$
+	\item $p_1-p_2$ 에 대한 $100(1-\alpha)\%$ 신뢰구간
+	$$(p_1-p_2) \pm z_{\alpha/2} \sqrt{\frac{\widehat{p_1}(1-\widehat{p_1})}{n_1} +\frac{\widehat{p_2}(1-\widehat{p_2})}{n_2}}$$
+\end{itemize}
+}\\
+두 모비율의 비교를 위한 유의성검정에서, 귀무가설 $H_0$: $p_1=p_2$ 가 사실일 때는 공통인 모비율 $p_1=p_2=p$ 에 대하여 $$\var(\widehat{p_1-p_2}) = \ds \frac{p_1(1-p_1)}{n_1} + \frac{p_2(1-p_2)}{n_2} = p(1-p)\left(\frac{1}{n_1} + \frac{1}{n_2}\right)$$
+임을 알 수 있다. 또, 두 표본을 합하여 총 $n_1+n_2$ 개의 표본에서 $X_1+X_2$ 개가 특정 속성을 가진 것으로 나타났다고 생각할 수 있다.
+
+\defn{$p_1=p_2=p$ 인 경우에 $p$ 의 추정량으로는 $$\widehat{p} = \frac{X_1+X_2}{n_1+n_2}$$ 로 정의한 \textbf{합동표본비율}(pooled sample proportion)을 사용한다.
+}\\
+따라서 표본의 크기가 충분히 크면 귀무가설 $H_0$: $p_1=p_2$ 하에서 다음이 성립한다.
+$$\frac{(\widehat{p_1}-\widehat{p_2}) - 0}{\ds \sqrt{\widehat{p}(1-\widehat{p})\left(\frac{1}{n_1}+\frac{1}{n_2}\right)}} \sim \mc{N}(0, 1)$$\\
+
+\thm{\textbf{두 모비율의 비교를 위한 검정} (표본 크기가 큰 경우)
+\begin{itemize}
+	\item 귀무가설 $H_0$: $p_1 = p_2$ 에 대한 검정 ($\widehat{p}$ 는 합동표본비율)
+	\begin{itemize}
+		\item 검정통계량: $\ds \frac{\widehat{p_1}-\widehat{p_2}}{\ds \sqrt{\widehat{p}(1-\widehat{p})\left(\frac{1}{n_1}+\frac{1}{n_2}\right)}} \sim_{H_0} \mc{N}(0, 1)$ 
+		\item 관측값: $z = \ds \frac{X_1/n_1 - X_2/n_2}{\ds \sqrt{\widehat{p}(1-\widehat{p})\left(\frac{1}{n_1}+\frac{1}{n_2}\right)}}$
+	\end{itemize}
+	\item 대립가설의 형태에 따른 기각역과 유의확률
+	\begin{center}
+		\begin{tabular}{c|c|c}
+			대립가설 & 유의수준 $\alpha$에서의 기각역 & 유의확률\\ \hline
+			$H_1$: $p_1 >p_2$ & $z\geq z_\alpha$ & $\pr\left(Z\geq z\right)$\\ 
+			$H_1$: $p_1 < p_2$ & $z\leq - z_\alpha$ & $\pr\left(Z\leq z\right)$\\ 
+			$H_1$: $p_1 \neq p_2$ & $\left|z\right|\geq z_{\alpha/2}$ & $\pr\left(\left|Z\right|\geq \left|z\right|\right)$
+		\end{tabular}
+	\end{center} 
+\end{itemize}
+}
+
+\prob{어느 학교의 두 학급 A, B에 대해 1분 내에 자유투 10개를 성공할 수 있는지 조사하였다. 학급에 따라 성공률에 차이가 있는지 유의수준 $5\%$에서 검정하여라.
+\begin{center}
+	\begin{tabular}{c|c|c|c}
+		& 성공 & 실패 & 표본크기\\\hline
+		학급 A & 13 & 29 & $n_1 =42$\\\hline
+		학급 B & 22 & 18 & $n_2 = 40$\\\hline
+		합계 & 35 & 47 & $n = 82$ \\\hline	
+	\end{tabular}
+\end{center}
+}
+\pagebreak
+
+\defn{관측값을 어떤 속성에 따라 분류하여, 각 속성별 도수로 나타낸 자료를 \textbf{범주형 자료}(categorical data)라 한다.}
+
+\thm{\textbf{다항분포}(Multinomial Distribution)\\
+한 번의 시행에서 범주 1, $\dots$, 범주 $c$ 중 하나만 가능하고, 각 범주가 나올 확률을 $p_1, \dots, p_c$ 라 하자. (단, $\sum p_i = 1$) 이러한 시행을 $n$번 독립정으로 행할 때, 각 범주가 나타나는 횟수를 $X_1, \dots, X_c$ 라고 하면,
+$$\pr(X_1=x_1, \dots, X_c=x_c) = \frac{n!}{x!\cdots x_c!}p_1^{x_1}\dots p_c^{x_c}, \quad \left(\sum x_i = n, x_i \geq 0\right)$$
+이 된다. 확률질량함수가 위와 같이 주어지는 분포를 \textbf{다항분포}라 한다.
+}
+
+\thm{다항분포는 다음 성질을 만족한다.
+\begin{itemize}
+	\item 기호: $(X_1, \dots, X_c) \sim \mr{M}(n, p_1, \dots, p_c)$, $p_i>0, \sum p_i = 1$
+	\item $X_i \sim \mr{B}(n, p_i)$ for all $i$
+	\item $\ex(X_i) = np_i$, $\var(X_i) = np_i(1-p_i)$ for all $i$
+	\item $n$이 충분히 크면\footnote{$np_i\geq 5$ for all $i$}, $\ds \sum_{i=1}^c \frac{(X_i-np_i)^2}{np_i} \sim \chisq(c-1)$  
+\end{itemize}
+}
+
+\thm{\textbf{범주형 자료의 분석}
+\begin{itemize}
+	\item \textbf{적합도 검정}(goodness-of-fit test): 도수표로 나타낸 자료들이 이론적인 또는 가정된 모형과 일치하는지에 대한 검정
+	\item \textbf{동일성 검정}(homogeneity test): 여러 범주를 갖는 하나의 특성을 각 부차모집단별로 관측하여 이들의 분포의 동일성 또는 동질성을 검정하는 방법
+	\item \textbf{독립성 검정}(independence test): 한 모집단의 각 개체에 대하여 두 가지 특성을 관측하고 이들 각 특성을 여러 개의 범주로 나눌 수 있을 때, 이들 특성이 서로 관련성이 있는지 검정하는 방법 
+\end{itemize}
+}
+
+\thm{\textbf{적합도 검정}(Goodness-of-Fit Test)
+\begin{itemize}
+	\item 자료구조: $(O_1, \dots, O_c) \sim \mr{M}(n, p_1, \dots, p_c)$
+	\begin{center}
+		\begin{tabular}{c|c|c|c|c|c}
+			범주 & 1& 2& $\cdots$ & $c$ & 계\\\hline
+			확률 & $p_1$ & $p_2$ & $\cdots$ & $p_c$ \\\hline
+			관측도수 & $O_1$ & $O_2$ & $\cdots$ & $O_c$ & $n$\\\hline
+		\end{tabular}
+	\end{center}
+	\item 가설
+	\begin{itemize}
+		\item 귀무가설 $H_0$: $p_1 = p_{10}, \dots, p_c=p_{c0}$
+		\item 대립가설 $H_1$: $H_0$ 가 아니다. ($p_i \neq p_{i0}$ 인 $i$ 가 적어도 하나 존재한다.) 
+	\end{itemize}
+	\item 검정통계량: $\chisq = \ds \sum_{i=1}^c \frac{(O_i-E_i)^2}{E_i} \sim_{H_0} \chisq(c-1)$ (단, 기대도수 $E_i = np_{i0}$)
+	\item 관측값: $\chisq_0$
+	\item 유의수준 $\alpha$ 에서의 기각역: $\chisq_0 \geq \chisq_\alpha(c-1)$
+	\item 유의확률: $\pr(\chisq \geq \chisq_0)$
+\end{itemize}
+}
+
+\prob{음주운전으로 체포된 100명의 표본에 대한 연령 분포가 다음과 같다.
+\begin{center}
+	\begin{tabular}{c|c|c|c|c|c}
+		나이 & 16 $\sim$ 25 & 26 $\sim$ 35 & 36 $\sim$ 45 & 46 $\sim$ 55 & 56 이상 \\\hline
+		체포자 수 & 32 & 25 & 19 & 16 & 8\\\hline
+	\end{tabular}
+\end{center}
+음주운전으로 체포된 사람들의 비율이 모든 연령 그룹에 대하여 같다고 할 수 있는지 유의수준 1\% 에서 검정하여라.\\
+\begin{itemize}
+	\item 각 나이별 사람들의 비율:
+	\item 귀무가설, 대립가설:
+	\item 검정통계량과 관측값:
+	\item 기각역:
+\end{itemize}
+
+\begin{center}
+	\begin{tabular}{c|c|c|c|c|c}
+		나이 & 16 $\sim$ 25 & 26 $\sim$ 35 & 36 $\sim$ 45 & 46 $\sim$ 55 & 56 이상 \\\hline
+		비율 & & & & & \\\hline
+		관측도수($O_i$) & &  & & & \\\hline
+		기대도수($E_i$)  & & & & &  \\\hline
+		$(O_i-E_i)^2/E_i$  & & & & &  \\\hline
+	\end{tabular}
+\end{center}
+}\\
+
+\thm{\textbf{동일성 검정}(Homogeneity Test) (표본의 크기가 큰 경우)\\
+각 모집단이 $c$개의 범주로 나누어진 $r$개의 다항모집단에 대해 관측한 자료이다.
+\begin{itemize}
+	\item 확률구조: $r\times c$ \textbf{분할표}(contingency table)
+		\begin{center}
+		\begin{tabular}{c|c|c|c|c|c}
+		 & 범주 1 & 범주 2 & $\cdots$ & 범주 $c$ & 합계\\ \hline
+		 모집단 1의 표본 & $p_{11}$ & $p_{12}$ & $\cdots$ & $p_{1c}$ & 1 \\ \hline
+		 모집단 2의 표본 & $p_{21}$ & $p_{22}$ & $\cdots$ & $p_{2c}$ & 1 \\ \hline
+		 $\vdots$ &$\vdots$ &$\vdots$ &$\ddots$ &$\vdots$ & $\vdots$ \\ \hline
+		 모집단 $r$의 표본 & $p_{r1}$ & $p_{r2}$ & $\cdots$ & $p_{rc}$ & 1 \\ \hline
+		\end{tabular}	
+	\end{center}
+	\item 자료구조: $r\times c$ 분할표, (관측도수, $H_0$ 하에서 기대도수) = ($O_{ij}, \widehat{E_{ij}}$)
+	\begin{center}
+		\begin{tabular}{c|c|c|c|c|c}
+			 & 범주 1 & 범주 2 & $\cdots$ & 범주 $c$ & 표본 크기\\ \hline
+			모집단 1의 표본 & $O_{11}$, $\widehat{E_{11}}$ & $O_{12}$, $\widehat{E_{12}}$ & $\cdots$ & $O_{1c}$, $\widehat{E_{1c}}$ & $n_1$ \\ \hline
+			모집단 2의 표본 & $O_{21}$, $\widehat{E_{21}}$ & $O_{22}$, $\widehat{E_{22}}$ & $\cdots$ & $O_{2c}$, $\widehat{E_{2c}}$ & $n_2$ \\ \hline
+			$\vdots$ &$\vdots$ &$\vdots$ &$\ddots$ &$\vdots$ & $\vdots$ \\ \hline
+			모집단 $r$의 표본 & $O_{r1}$, $\widehat{E_{r1}}$ & $O_{r2}$, $\widehat{E_{r2}}$ & $\cdots$ & $O_{rc}$, $\widehat{E_{rc}}$ & $n_r$ \\ \hline
+			합계 & $O_{\cdot 1}$ & $O_{\cdot 2}$ & $\cdots$ &  $O_{\cdot c}$ & $n$\\\hline
+		\end{tabular}
+	\end{center}
+	\item 분포가정: $(O_{i1}, \dots, O_{ic}) \sim_{indep} \mr{M}(n_i, p_{i1}, \dots, p_{ic})$, $i = 1, \dots, r$
+	\item $i$-번째 다항모집단의 각 범주에 대한 모비율:
+	$$p_{i1},\; p_{i2},\; \dots,\; p_{ic} \qquad \left(i=1, \dots, r, \sum_{j=1}^c p_{ij} = 1\right)$$
+	\item 가설
+	\begin{itemize}
+		\item 귀무가설 $H_0$: $p_{1j} = p_{2j} = \cdots = p_{rj} = p_j$ ($j = 1, \dots, c$)
+		\item 대립가설 $H_1$: $H_0$가 아니다.
+	\end{itemize}
+	$H_0$ 가 사실일 때, $p_j$ 의 추정량은 합동표본비율로 다음과 같이 주어진다.
+	$$\widehat{p_j} = \frac{O_{1j} + O_{2j}+\cdots + O_{rj}}{n_1+n_2+\cdots + n_r} = \frac{O_{\cdot j}}{n} \; (j=1, \dots, c)$$
+	\item $H_0$ 하에서의 추정 기대도수
+	$$\widehat{E_{ij}} = n_i \widehat{p_j} = n_i \cdot \frac{O_{\cdot j}}{n} \; \;(1\leq i\leq r, 1\leq j\leq c)$$
+	이 검정법은 $\widehat{E_{ij}}\geq 5$ 일 때만 사용한다.
+	\item 검정통계량: $\chisq = \ds \sum_{i=1}^r \sum_{j=1}^c \frac{(O_{ij}-\widehat{E_{ij}})^2}{\widehat{E_{ij}}} \sim_{H_0} \chisq\left((r-1)(c-1)\right)$
+	\item 관측값: $\chisq_0$
+	\item 기각역: $\chisq_0 \geq \chisq_{\alpha}\left((r-1)(c-1)\right)$
+	\item 유의확률: $\pr(\chisq \geq \chisq_0)$
+\end{itemize}
+}
+
+\prob{공단에 인접한 세 지역에서 공해를 느끼는 정도가 지역에 따라 차이가 있는가를 알아 보고자 하여, 세 지역에서 각각 97, 95, 99명을 랜덤추출하여 산업 공해로 인한 악취를 느끼는 횟수에 대하여 조사한 결과가 다음과 같이 주어져 있다. 범주 1은 매일, 범주 2는 일주일에 한 번, 범주 3은 적어도 한 달에 한 번, 범주 4는 한 달에 한 번 미만, 범주 5는 전혀 악취를 느끼지 않는 경우를 뜻한다.
+\begin{center}
+	\begin{tabular}{c|c|c|c|c|c|c}
+		     & 범주 1 & 범주 2 & 범주 3 & 범주 4 & 범주 5 &   표본 크기    \\ \hline
+		지역 1 &  20  &  28  &  23  &  14  &  12  & $n_1 = 97$ \\ \hline
+		지역 2 &  14  &  34  &  21  &  14  &  12  & $n_2 = 95$ \\ \hline
+		지역 3 &  4   &  12  &  10  &  20  &  53  & $n_3 = 99$ \\ \hline
+		 합계  &  38  &  74  &  54  &  48  &  77  &    291     \\ \hline
+	\end{tabular}
+\end{center}
+이 자료로부터 지역에 따라 공해를 느끼는 정도가 다르다고 할 수 있는지 유의수준 1\%에서 검정하여라.\\
+\begin{itemize}
+	\item $p_{i1}, p_{i2}, \dots, p_{i5}$: 지역 $i$의 각 범주에 대한 모비율, $i = 1, 2, 3$
+	\item 귀무가설:
+	\item 대립가설:
+	\item $\widehat{p_i}$ 의 값:
+	\item $\widehat{E_{ij}}$ 계산 및 분할표:
+\begin{center}
+	\begin{tabular}{c|c|c|c|c|c|c}
+		($O_{ij}, \widehat{E_{ij}}$) & 범주 1 & 범주 2 & 범주 3 & 범주 4 & 범주 5 & 표본 크기 \\ \hline
+		지역 1 & $~\qquad\quad~$ &$~\qquad\quad~$ &$~\qquad\quad~$ &$~\qquad\quad~$ &$~\qquad\quad~$ & \\ \hline
+		지역 2 & $~\qquad\quad~$ &$~\qquad\quad~$ &$~\qquad\quad~$ &$~\qquad\quad~$ &$~\qquad\quad~$ & \\ \hline
+		지역 3 & $~\qquad\quad~$ &$~\qquad\quad~$ &$~\qquad\quad~$ &$~\qquad\quad~$ &$~\qquad\quad~$ & \\ \hline
+		합계 & 38 & 74 & 54 & 48 & 77 & 291 \\ \hline
+	\end{tabular}
+\end{center}
+	\item 검정통계량과 관측값:
+	\item 기각역: 
+\end{itemize}
+}
+
+\thm{\textbf{독립성 검정}(Independence Test)\\
+특성 $A, B$가 각각 $r, c$개의 범주로 나누어지는 경우에 각 범주에 대응하는 모비율의 구조와 $n$개의 랜덤표본으로부터 얻게 되는 관측도수는 다음과 같이 $r\times c$ 분할표로 주어진다.
+\begin{itemize}
+	\item 확률구조: $r\times c$ 분할표
+	\begin{center}
+		\begin{tabular}{c|c|c|c|c|c}
+			         &   범주 $B_1$    &   범주 $B_2$    & $\cdots$ &   범주 $B_c$    &      합계      \\ \hline
+			범주 $A_1$ &   $p_{11}$    &   $p_{12}$    & $\cdots$ &   $p_{1c}$    & $p_{1\cdot}$ \\ \hline
+			범주 $A_2$ &   $p_{21}$    &   $p_{22}$    & $\cdots$ &   $p_{2c}$    & $p_{2\cdot}$ \\ \hline
+			$\vdots$ &   $\vdots$    &   $\vdots$    & $\ddots$ &   $\vdots$    &   $\vdots$   \\ \hline
+			범주 $A_r$ &   $p_{r1}$    &   $p_{r2}$    & $\cdots$ &   $p_{rc}$    & $p_{r\cdot}$ \\ \hline
+			   합계    & $p_{\cdot 1}$ & $p_{\cdot 2}$ & $\cdots$ & $p_{\cdot c}$ &      1       \\ \hline
+		\end{tabular}
+	\end{center}
+	\item 자료구조: $r\times c$ 분할표, (관측도수, $H_0$ 하에서 기대도수) = ($O_{ij}, \widehat{E_{ij}}$)
+	\begin{center}
+		\begin{tabular}{c|c|c|c|c|c}
+			         &           범주 $B_1$           &           범주 $B_2$           & $\cdots$ &           범주 $B_c$           &      합계      \\ \hline
+			범주 $A_1$ & $O_{11}$, $\widehat{E_{11}}$ & $O_{12}$, $\widehat{E_{12}}$ & $\cdots$ & $O_{1c}$, $\widehat{E_{1c}}$ & $O_{1\cdot}$ \\ \hline
+			범주 $A_2$ & $O_{21}$, $\widehat{E_{21}}$ & $O_{22}$, $\widehat{E_{22}}$ & $\cdots$ & $O_{2c}$, $\widehat{E_{2c}}$ & $O_{2\cdot}$ \\ \hline
+			$\vdots$ &           $\vdots$           &           $\vdots$           & $\ddots$ &           $\vdots$           &   $\vdots$   \\ \hline
+			범주 $A_r$ & $O_{r1}$, $\widehat{E_{r1}}$ & $O_{r2}$, $\widehat{E_{r2}}$ & $\cdots$ & $O_{rc}$, $\widehat{E_{rc}}$ & $O_{r\cdot}$ \\ \hline
+			   합계    &        $O_{\cdot 1}$         &        $O_{\cdot 2}$         & $\cdots$ &        $O_{\cdot c}$         &     $n$      \\ \hline
+		\end{tabular}
+	\end{center}
+	\item 분포 가정: $(O_{ij})\sim \mr{M}(n, p_{ij})$ \quad $(1\leq i\leq r, 1\leq j\leq c)$ 
+	\item 범주 $(A_i, B_j)$ 에 대한 모비율: $p_{ij}$\quad $(1\leq i\leq r, 1\leq j\leq c)$
+	$$p_{ij} = \pr(A=A_i, B=B_i),\; p_{i\cdot} = \sum_{j=1}^c p_{ij},\; p_{\cdot j} = \sum_{i=1}^r p_{ij}, \; \sum_{i=1}^r\sum_{j=1}^c p_{ij} = 1$$
+	\item 가설
+	\begin{itemize}
+		\item 귀무가설 $H_0$: $p_{ij} = p_{i\cdot} \times p_{\cdot j}$ \quad ($1\leq i\leq r, 1\leq j\leq c$)
+		\item 대립가설 $H_1$: $H_0$가 아니다.
+	\end{itemize}
+	$H_0$가 사실일 때, $p_{ij}$ 의 추정량은 표본합동비율로 다음과 같이 주어진다.
+	$$\widehat{p_{ij}} = \frac{O_{i\cdot}}{n}\cdot \frac{O_{\cdot j}}{n} \quad (1\leq i\leq r, 1\leq j\leq c)$$
+	\item $H_0$ 하에서의 추정 기대도수
+	$$\widehat{E_{ij}}=n\widehat{p_{ij}} = n\cdot \frac{O_{i\cdot}}{n}\cdot \frac{O_{\cdot j}}{n} = \frac{O_{i\cdot}\cdot O_{\cdot j}}{n} \quad (1\leq i\leq r, 1\leq j\leq c)$$
+	이 검정법은 $\widehat{E_{ij}}\geq 5$ 일 때만 사용한다.
+		\item 검정통계량: $\chisq = \ds \sum_{i=1}^r \sum_{j=1}^c \frac{(O_{ij}-\widehat{E_{ij}})^2}{\widehat{E_{ij}}} \sim_{H_0} \chisq\left((r-1)(c-1)\right)$
+	\item 관측값: $\chisq_0$
+	\item 기각역: $\chisq_0 \geq \chisq_{\alpha}\left((r-1)(c-1)\right)$
+	\item 유의확률: $\pr(\chisq \geq \chisq_0)$
+\end{itemize}
+}
+
+\prob{대도시의 근교에서 출퇴근하며 혼자서만 승용차를 이용하는 사람들 중에서 250명을 랜덤 추출하여 이들을 승용차의 크기와 통근 거리 $d$ 에 따라 분류한 결과 다음과 같은 자료를 얻었다.
+\begin{center}
+	\begin{tabular}{c|c|c|c|c}
+		& $d<15$ & $15\leq d < 30$ & $d\geq 30$ & 합계 \\\hline
+		경승용차 & 6 & 27 & 19 & 52 \\\hline
+		소형승용차 & 8 & 36 & 17 & 61 \\\hline
+		중형승용차 & 21 & 45 & 33 & 99 \\\hline
+		대형승용차 & 14 & 18 & 6 & 38 \\\hline
+		합계 & 49 & 126 & 75 & 250 \\\hline
+	\end{tabular}
+\end{center}
+이 자료에 의하면 승용차의 크기와 통근 거리 사이에 관계가 있다고 할 수 있는지 유의수준 5\%에서 검정하여라. \\
+\begin{itemize}
+	\item 귀무가설:
+	\item 대립가설:
+	\item $\widehat{E_{ij}}$ 계산 및 분할표:
+	\begin{center}
+		\begin{tabular}{c|c|c|c|c}
+			($O_{ij}, \widehat{E_{ij}}$) & $d<15$ & $15\leq d< 30$ &  $d\geq 30$ & 합계 \\ \hline
+			경승용차 & $~\qquad\qquad~$ &$~\qquad\quad~$ &$~\qquad\qquad~$ & $~\qquad~$\\ \hline
+			소형승용차 & $~\qquad\qquad~$ &$~\qquad\quad~$ &$~\qquad\quad~$ & \\ \hline
+			중형승용차 & $~\qquad\quad~$ &$~\qquad\quad~$ &$~\qquad\quad~$ & \\ \hline
+			대형승용차 & & & & \\ \hline			
+			합계 & 49 & 126 & 75 & 250 \\ \hline
+		\end{tabular}
+	\end{center}
+	\item 검정통계량과 관측값:
+	\item 기각역: 
+\end{itemize}
+}
+\pagebreak
