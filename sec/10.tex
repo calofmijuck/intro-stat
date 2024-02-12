@@ -34,7 +34,7 @@ $$\pr\left(\left|\frac{\overline{X}-\mu}{\sigma/\sqrt{n}}\right| \leq z_{\alpha/
 
 \defn{구간추정량의 관측값 $L(x_1, \dots, x_n), U(x_1, \dots, x_n)$ 을 \textbf{구간추정값}(interval estimate) 또는 \textbf{신뢰구간}이라 한다.}\\
 \textbf{예제}. 정규모집단에서의 모평균 $\mu$에 대한 $100(1-\alpha)\%$ 신뢰구간은 $$\left(\overline{x}-z_{\alpha/2}\cdot \frac{\sigma}{\sqrt{n}}, \:\overline{x}+z_{\alpha/2}\cdot \frac{\sigma}{\sqrt{n}} \right)$$\\
-\textbf{참고}. $z_{0.05} = 1.645$, $z_{0.025} = 1.96$, $z_{0.005} = 2.756$ 임을 알아두면 좋다.\\
+\textbf{참고}. $z_{0.05} = 1.645$, $z_{0.025} = 1.96$, $z_{0.005} = 2.576$ 임을 알아두면 좋다.\\
 
 \prob{미국임상영양학회지에 실린 한 기록에 의하면, 중앙아메리카의 원주민을 대상으로 49명의 표본조사를 한 결과 혈청 내의 콜레스테롤 양이 157mg/L 였다고 한다. 이들 원주민의 혈청 내 콜레스테롤 양이 표준편차가 30인 정규분포를 따를 때, 모평균 $\mu$에 대한 95\% 신뢰구간을 구하여라.}
 
@@ -91,7 +91,7 @@ $$\qed
 	\item[(2)] 새로운 공법이 전구의 평균수명을 증가시켰다고 할 수 있는가?\vspace{-3mm}
 	\begin{center}
 		$H_0$: $\mu=1200$ (평균 수명이 같다)\qquad $H_1$: $\mu > 1200$ (평균 수명이 증가했다)
-	\end{center}\vspace{-3mm}	
+	\end{center}\vspace{-3mm}
 \end{itemize}~
 
 \defn{비교하는 값의 양쪽을 뜻하는 가설을 \textbf{양측가설}(two-sided hypothesis)이라 하고, 한쪽을 뜻하는 가설을 \textbf{단측가설}(one-sided hypothesis)이라 한다.}
@@ -145,8 +145,8 @@ $$\begin{aligned}
 	\begin{center}
 		\begin{tabular}{c|c|c}
 			대립가설 & 유의수준 $\alpha$에서의 기각역 & 유의확률\\ \hline
-			$H_1$: $\mu >\mu_0$ & $z\geq z_\alpha$ & $\pr\left(Z\geq z\right)$\\ 
-			$H_1$: $\mu <\mu_0$ & $z\leq - z_\alpha$ & $\pr\left(Z\leq z\right)$\\ 
+			$H_1$: $\mu >\mu_0$ & $z\geq z_\alpha$ & $\pr\left(Z\geq z\right)$\\
+			$H_1$: $\mu <\mu_0$ & $z\leq - z_\alpha$ & $\pr\left(Z\leq z\right)$\\
 			$H_1$: $\mu \neq \mu_0$ & $\left|z\right|\geq z_{\alpha/2}$ & $\pr\left(\left|Z\right|\geq \left|z\right|\right)$
 		\end{tabular}
 	\end{center}
@@ -164,8 +164,8 @@ $$\begin{aligned}
 		\begin{center}
 			\begin{tabular}{c|c|c}
 				대립가설 & 유의수준 $\alpha$에서의 기각역 & 유의확률\\ \hline
-				$H_1$: $\mu >\mu_0$ & $t\geq t_{\alpha}(n-1)$ & $\pr\left(T\geq t\right)$\\ 
-				$H_1$: $\mu <\mu_0$ & $t\leq -t_{\alpha}(n-1)$ & $\pr\left(T\leq t\right)$\\ 
+				$H_1$: $\mu >\mu_0$ & $t\geq t_{\alpha}(n-1)$ & $\pr\left(T\geq t\right)$\\
+				$H_1$: $\mu <\mu_0$ & $t\leq -t_{\alpha}(n-1)$ & $\pr\left(T\leq t\right)$\\
 				$H_1$: $\mu \neq \mu_0$ & $\left|t\right|\geq t_{\alpha/2}(n-1)$ & $\pr\left(\left|T\right|\geq \left|t\right|\right)$
 			\end{tabular}
 		\end{center}
@@ -196,7 +196,7 @@ $$-z_\beta \geq z_\alpha -\frac{\mu_1-\mu_0}{\sigma/\sqrt{n}} $$ 이 성립하�
 	\item[(1)] 적절한 가설을 유의수준 5\%에서 검정하여라.
 	\item[(2)] 유의수준 5\%에서 검정할 때, 제 1종의 오류를 범할 확률을 구하여라.
 	\item[(3)] 실제로 $\mu=28$ 일 때, 제 2종의 오류를 범할 확률이 $\beta=0.10$ 이하가 되도록 하며, 유의수준 5\%인 검정법을 사용하려고 한다. 이 때, 요구되는 표본의 최소 크기를 구하여라.
-\end{enumerate}	
+\end{enumerate}
 }
 
 \pagebreak
