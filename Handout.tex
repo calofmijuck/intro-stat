@@ -24,13 +24,22 @@
 }
 \geometry{a4paper}
 
-\renewcommand{\baselinestretch}{1.4}
+\usepackage{hyperref}
+\hypersetup{
+    % hidelinks,
+    colorlinks=true,
+    linkcolor=black,
+    unicode=true,
+    urlcolor=blue,
+    citecolor=blue,
+}
 
+\renewcommand{\baselinestretch}{1.4}
 
 \theoremstyle{definition}
 \newtheorem{theorem}{\sffamily 정리}[section]
 \theoremstyle{definition}
-\newtheorem{definition}[theorem]{\sffamily 정의}  
+\newtheorem{definition}[theorem]{\sffamily 정의}
 \newtheorem{problem}[theorem]{\sffamily 연습문제}
 
 \newcommand{\defn}[1]{\begin{definition}#1\end{definition}~}
@@ -38,7 +47,6 @@
 \newcommand{\prob}[1]{\begin{problem}#1\end{problem}~}
 
 \usepackage{titlesec}
-
 
 \title{\textbf{Introductory Statistics}}
 \author{Sungchan Yi}
@@ -59,7 +67,6 @@
 \newcommand{\chisq}{\chi^2}
 \renewcommand{\qed}{\hfill\ensuremath{\square}}
 
-
 \begin{document}
 \maketitle
 
@@ -78,6 +85,5 @@
 \input{./sec/10.tex}
 \input{./sec/11.tex}
 \input{./sec/12.tex}
-
 
 \end{document}
